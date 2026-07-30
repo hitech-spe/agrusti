@@ -54,7 +54,7 @@ To adhere to clean architecture and avoid hardcoded duplication of company detai
 ### 5. Modern Premium Styling Theme (WordPress Editorial Style)
 - Defined globally in `src/styles.scss` using CSS custom properties.
 - **Color Palette:** Deep natural stone-slate and luxury charcoal backgrounds (`#141719` / `#1e2224`), sophisticated warm brass gold/bronze accents (`#c5a059`), and clean white/warm travertine cream layout layers (`#ffffff` / `#faf9f6`).
-- **Aesthetic:** Editorial-style headings (using Google Font *Plus Jakarta Sans*), rounded layout cards (`16px`), rich soft shadows, minimal badges, and smooth entrance and hover animations.
+- **Aesthetic:** Editorial-style headings (using Google Font *Plus Jakarta Sans*), rounded layout cards (`16px`), rich soft shadows, minimal badges, and beautiful scroll-triggered entry animations powered globally by **AOS (Animate On Scroll)** with SPA auto-refresh routing hooks. Features highly-performant, GPU-accelerated animated backgrounds (drifting fluid Aura Orbs and sparkling Floating Golden Dust particles) inside the Hero section.
 - **Logo & Favicons:** Uses the premium transparent background logo asset `assets/images/newLogo.webp` integrated natively in header and footer environments. Favicon and shortcut icon configurations are dynamically linked inside `src/index.html` referencing `/assets/icons/favicon_io/` with full multi-device support (apple-touch-icon, multiple png resolutions, and structured site manifest).
 - **Typography:** Bold, modern headings paired with *Inter* for body readability.
 

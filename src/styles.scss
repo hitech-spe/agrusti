@@ -3,6 +3,9 @@
 // Import elegant typography from Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
+// Import AOS (Animate on Scroll) Styles
+@import "aos/dist/aos.css";
+
 :root {
   // WordPress-Style Premium Palette: Travertine Sand, Luxury Gold, and Natural Stone Slate
   --color-dark: #141719;        // Deep Stone Slate / Luxury Charcoal (More natural than blue)
@@ -19,7 +22,7 @@
   --color-text-light-muted: #cbd5e1; // Light Muted Slate text
   --color-border: #e8e6e1;      // Sand Travertine borders
   --color-border-dark: #2d3135; // Warm Slate borders
-  
+
   // Modern Smooth WordPress-style Shadows & Rounding
   --border-radius-lg: 16px;     // Smooth rounded corners
   --border-radius-md: 10px;     // Button and element corners
@@ -27,15 +30,15 @@
   --shadow-sm: 0 2px 10px rgba(15, 23, 42, 0.03);
   --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.06);
   --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.12);
-  
+
   // Elegant Editorial Typography
   --font-headings: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  
+
   // Transitions
   --transition-fast: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   // Layout Spacing
   --max-width: 1200px;
   --header-height: 90px;
@@ -63,7 +66,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-headings);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--color-text-dark);
 }
 
 a {
@@ -96,19 +98,19 @@ button {
 
 .section {
   padding: 120px 0;
-  
+
   @media (max-width: 768px) {
     padding: 80px 0;
   }
-  
+
   &.bg-cream {
     background-color: var(--color-bg-cream);
   }
-  
+
   &.bg-dark {
     background-color: var(--color-dark);
     color: var(--color-text-light);
-    
+
     h2, h3, p {
       color: var(--color-text-light);
     }
@@ -121,7 +123,7 @@ button {
   max-width: 750px;
   margin: 0 auto 70px auto;
   position: relative;
-  
+
   &::after {
     content: '';
     display: block;
@@ -131,24 +133,24 @@ button {
     margin: 20px auto 0 auto;
     border-radius: 2px;
   }
-  
+
   h2 {
     font-size: 42px;
     font-weight: 800;
     margin-bottom: 12px;
     letter-spacing: -1px;
-    
+
     @media (max-width: 768px) {
       font-size: 32px;
     }
   }
-  
+
   p {
     font-size: 19px;
     color: var(--color-text-muted);
     font-weight: 400;
     line-height: 1.6;
-    
+
     @media (max-width: 768px) {
       font-size: 16px;
     }
@@ -170,12 +172,12 @@ button {
   transition: var(--transition-smooth);
   box-shadow: var(--shadow-sm);
   border: 1px solid transparent;
-  
+
   &.btn-primary {
     background-color: var(--color-primary);
     color: var(--color-text-light);
     border-color: var(--color-primary);
-    
+
     &:hover {
       background-color: var(--color-primary-light);
       border-color: var(--color-primary-light);
@@ -183,23 +185,23 @@ button {
       box-shadow: var(--shadow-lg);
     }
   }
-  
+
   &.btn-outline {
     background-color: transparent;
     color: var(--color-text-dark);
     border-color: var(--color-text-dark);
-    
+
     &:hover {
       background-color: var(--color-text-dark);
       color: var(--color-text-light);
       transform: translateY(-3px) scale(1.02);
       box-shadow: var(--shadow-lg);
     }
-    
+
     &.btn-light {
       color: var(--color-text-light);
       border-color: var(--color-text-light);
-      
+
       &:hover {
         background-color: var(--color-text-light);
         color: var(--color-text-dark);
@@ -229,7 +231,7 @@ button {
 // Portfolio / Completed Projects Section (WordPress Gallery style - Global for future reusability)
 .portfolio-section {
   padding: 120px 0;
-  
+
   @media (max-width: 768px) {
     padding: 80px 0;
   }
@@ -240,7 +242,7 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 36px;
   margin-top: 20px;
-  
+
   @media (min-width: 992px) {
     grid-template-columns: 1fr 1fr; // Dual columns on desktop
   }
@@ -268,16 +270,16 @@ button {
 
     .portfolio-overlay {
       background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.5) 75%, transparent 100%);
-      
+
       .project-title {
         transform: translateY(0);
         color: var(--color-primary-light);
       }
-      
+
       .project-category {
         color: var(--color-text-light);
       }
-      
+
       .project-location {
         transform: translateY(0);
         opacity: 1;
@@ -407,7 +409,7 @@ button {
   border-radius: 5px;
   border: 2.5px solid var(--color-dark);
   transition: var(--transition-fast);
-  
+
   &:hover {
     background-color: var(--color-primary-light);
   }
@@ -422,7 +424,7 @@ button {
   margin-bottom: 55px;
   position: relative;
   z-index: 10;
-  
+
   button {
     font-family: var(--font-headings);
     font-size: 14px;
@@ -434,13 +436,13 @@ button {
     padding: 10px 24px;
     border-radius: var(--border-radius-md);
     transition: var(--transition-fast);
-    
+
     &:hover {
       color: var(--color-primary);
       border-color: var(--color-primary);
       transform: translateY(-2px);
     }
-    
+
     &.active {
       color: var(--color-text-light);
       background-color: var(--color-primary);
@@ -505,6 +507,76 @@ button {
     z-index: 1;
   }
 
+  // Living fluid blurred mesh gradients (Aura Orbs)
+  .aura-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(130px);
+    -webkit-filter: blur(130px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    mix-blend-mode: screen;
+
+    &.orb-1 {
+      top: 10%;
+      right: 15%;
+      width: 350px;
+      height: 350px;
+      background-color: var(--color-primary);
+      animation: orbDrift1 25s ease-in-out infinite alternate;
+    }
+
+    &.orb-2 {
+      bottom: 15%;
+      left: 10%;
+      width: 300px;
+      height: 300px;
+      background-color: var(--color-primary-light);
+      animation: orbDrift2 20s ease-in-out infinite alternate;
+    }
+
+    &.orb-3 {
+      top: 40%;
+      right: 40%;
+      width: 250px;
+      height: 250px;
+      background-color: #ffffff;
+      opacity: 0.02;
+      animation: orbDrift1 18s ease-in-out infinite alternate-reverse;
+    }
+  }
+
+  // Floating Golden Dust (Prestige luxury particles)
+  .floating-dust-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  .dust-particle {
+    position: absolute;
+    background-color: var(--color-primary-light);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 8px var(--color-primary-light);
+    animation: floatDust 12s linear infinite;
+
+    &.dp-1 { left: 10%; width: 3px; height: 3px; animation-duration: 14s; animation-delay: 0s; }
+    &.dp-2 { left: 25%; width: 4px; height: 4px; animation-duration: 11s; animation-delay: 2s; }
+    &.dp-3 { left: 40%; width: 2px; height: 2px; animation-duration: 16s; animation-delay: 1s; }
+    &.dp-4 { left: 55%; width: 3px; height: 3px; animation-duration: 12s; animation-delay: 4s; }
+    &.dp-5 { left: 70%; width: 4px; height: 4px; animation-duration: 15s; animation-delay: 3s; }
+    &.dp-6 { left: 85%; width: 2px; height: 2px; animation-duration: 13s; animation-delay: 5s; }
+    &.dp-7 { left: 30%; width: 3px; height: 3px; animation-duration: 10s; animation-delay: 6s; }
+    &.dp-8 { left: 75%; width: 2px; height: 2px; animation-duration: 17s; animation-delay: 2.5s; }
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -512,7 +584,7 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
+    background-image:
       linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 60px 60px;
@@ -733,7 +805,7 @@ button {
 
     .blueprint-pattern {
       background: #1e3a8a;
-      background-image: 
+      background-image:
         linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
       background-size: 15px 15px;
@@ -1036,6 +1108,37 @@ button {
     line-height: 1.6;
   }
 }
+
+// Keyframes for Aura Orbs and Floating Golden Dust
+@keyframes orbDrift1 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(40px, -30px) rotate(180deg); }
+  100% { transform: translate(-20px, 40px) rotate(360deg); }
+}
+
+@keyframes orbDrift2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, 40px) scale(1.15); }
+  100% { transform: translate(30px, -20px) scale(0.9); }
+}
+
+@keyframes floatDust {
+  0% {
+    transform: translateY(105vh) scale(0.5);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-5vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
 
 
 
