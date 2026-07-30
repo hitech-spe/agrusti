@@ -1,0 +1,324 @@
+<div class="home-page fade-in-route">
+  
+  <!-- BREATHTAKING HERO SECTION (Split-screen asymmetric grid with tactile slabs & credibility bar) -->
+  <section class="hero-impact">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-grid-layout">
+      
+      <!-- Left Column: Bold Editorial Message -->
+      <div class="hero-text-side">
+        <span class="hero-pre-title">{{ 'hero.badge' | translate }}</span>
+        <h1 class="hero-main-title">
+          L'Arte della Posa,<br>
+          <span class="text-gradient">L'Eccellenza Edile.</span>
+        </h1>
+        <p class="hero-lead-paragraph">
+          Dal 2014, realizziamo pavimentazioni di pregio e ristrutturazioni complete chiavi in mano. Un unico referente d'eccellenza, dalle demolizioni iniziali fino alla consegna del lavoro perfetto.
+        </p>
+        <div class="hero-cta-group">
+          <a routerLink="/contatti" class="btn btn-primary btn-cta-glow">{{ 'hero.cta' | translate }}</a>
+          <a routerLink="/servizi" class="btn btn-outline btn-light">{{ 'nav.services' | translate }}</a>
+        </div>
+      </div>
+
+      <!-- Right Column: Asymmetric Tactile Slabs (Physical material representers overlapping) -->
+      <div class="hero-visual-side">
+        <div class="tactile-composition">
+          <!-- Slab 1: Natural Stone -->
+          <div class="tactile-slab slab-stone">
+            <span class="slab-badge">PIETRA LOCALE</span>
+            <div class="slab-pattern stone-pattern"></div>
+          </div>
+          <!-- Slab 2: Premium Wood Parquet -->
+          <div class="tactile-slab slab-wood">
+            <span class="slab-badge">PARQUET</span>
+            <div class="slab-pattern wood-pattern"></div>
+          </div>
+          <!-- Slab 3: Architectural Blueprint -->
+          <div class="tactile-slab slab-blueprint">
+            <span class="slab-badge">PROGETTAZIONE</span>
+            <div class="slab-pattern blueprint-pattern">
+              <div class="blueprint-vector"></div>
+            </div>
+          </div>
+          <!-- Floating Credibility Capsule -->
+          <div class="floating-badge-capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">
+              <path d="m344-60-76-128-88-14 14-88-58-68 58-68-14-88 88-14 76-128 118 42 118-42 76 128 88 14-14 88 58 68-58 68 14 88-88 14-76 128-118-42-118 42Zm42-116 94-34 94 34 60-102 70-12-10-70 46-54-46-54 10-70-70-12-60-102-94 34-94-34-60 102-70 12 10 70-46 54 46 54-10 70 70 12 60 102Zm94-162 198-198-42-42-156 156-78-78-42 42 120 120ZM480-480Z"/>
+            </svg>
+            <div>
+              <strong>100% Chiavi in Mano</strong>
+              <span>Unico Interlocutore</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Floating Credibility & Stats Bar (Links Hero to body elegantly) -->
+    <div class="hero-stats-bar">
+      <div class="container stats-bar-grid">
+        <div class="stats-bar-item">
+          <span class="bar-num">12+</span>
+          <span class="bar-label">Anni di Esperienza</span>
+        </div>
+        <div class="bar-divider"></div>
+        <div class="stats-bar-item">
+          <span class="bar-num">100%</span>
+          <span class="bar-label">Dettaglio e Precisione</span>
+        </div>
+        <div class="bar-divider"></div>
+        <div class="stats-bar-item">
+          <span class="bar-num">Local</span>
+          <span class="bar-label">Sinergia di Squadre</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: SUMMARY SHOWCASE OF SERVICES -->
+  <section class="section bg-light position-relative overflow-hidden">
+    <div class="bg-watermark">ECCELLENZA</div>
+    <div class="container">
+      <div class="section-header">
+        <h2>{{ 'services.title' | translate }}</h2>
+        <p>{{ 'services.subtitle' | translate }}</p>
+      </div>
+
+      <div class="services-preview-grid">
+        <!-- Service 1: Flooring -->
+        <div class="service-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">
+              <path d="M120-120v-80h720v80H120Zm120-160v-320h120v320H240Zm240 0v-520h120v520H480Zm240 0v-200h120v200H720Z"/>
+            </svg>
+          </div>
+          <h3>{{ 'services.flooring.title' | translate }}</h3>
+          <p>{{ 'services.flooring.desc' | translate }}</p>
+          <a routerLink="/servizi" class="card-link">Scopri di più &rarr;</a>
+        </div>
+
+        <!-- Service 2: Renovations -->
+        <div class="service-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">
+              <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 480v480H520v-240h-80v240H160Zm320-350Z"/>
+            </svg>
+          </div>
+          <h3>{{ 'services.renovations.title' | translate }}</h3>
+          <p>{{ 'services.renovations.desc' | translate }}</p>
+          <a routerLink="/servizi" class="card-link">Scopri di più &rarr;</a>
+        </div>
+
+        <!-- Service 3: Roof treatments -->
+        <div class="service-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">
+              <path d="M480-120 120-480h240v-360h240v360h240L480-120Zm0-114 186-186H520v-360h-80v360H294l186 186Zm0-186Z"/>
+            </svg>
+          </div>
+          <h3>{{ 'services.roof.title' | translate }}</h3>
+          <p>{{ 'services.roof.desc' | translate }}</p>
+          <a routerLink="/servizi" class="card-link">Scopri di più &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: THE AGRUSTI TRANSFORMATION METODOLOGY (High Impact Workflow Timeline) -->
+  <section class="section bg-cream position-relative overflow-hidden">
+    <div class="bg-watermark">METODO</div>
+    <div class="container">
+      <div class="section-header">
+        <h2>Il Nostro Processo</h2>
+        <p>Come operiamo in cantiere per darti tranquillità, armonia ed eccellenza strutturale.</p>
+      </div>
+
+      <div class="workflow-timeline">
+        <!-- Step 1 -->
+        <div class="workflow-step">
+          <div class="step-number-container">
+            <span class="step-num">01</span>
+            <div class="step-glow"></div>
+          </div>
+          <div class="step-content-box">
+            <h3>Demolizione & Controllo</h3>
+            <p>Rimuoviamo il vecchio in totale sicurezza, preparando fondamenta solide e verificando pendenze strutturali e dettagli logistici di partenza.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="workflow-step">
+          <div class="step-number-container">
+            <span class="step-num">02</span>
+            <div class="step-glow"></div>
+          </div>
+          <div class="step-content-box">
+            <h3>Sinergia & Struttura</h3>
+            <p>Coordiniamo i migliori artigiani locali per impianti, carpenteria e arredi integrati. Antonio Agrusti è costantemente in cantiere a creare armonia e coesione.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="workflow-step">
+          <div class="step-number-container">
+            <span class="step-num">03</span>
+            <div class="step-glow"></div>
+          </div>
+          <div class="step-content-box">
+            <h3>Posa & Rifinitura</h3>
+            <p>Eseguiamo la posa d’eccellenza di pavimenti (pietra, legno, autobloccanti) o guaine per lastrici solari, rifinendo ogni dettaglio fino alla perfetta consegna.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Split Editorial Block: BRIEF ABOUT TEASER -->
+  <section class="section position-relative overflow-hidden">
+    <div class="bg-watermark">STORIA</div>
+    <div class="container about-teaser-grid">
+      <div class="teaser-visual">
+        <div class="premium-shape-container">
+          <div class="golden-accent-box"></div>
+          <div class="charcoal-image-placeholder">
+            <span class="placeholder-year">EST. 2014</span>
+          </div>
+        </div>
+      </div>
+      <div class="teaser-content">
+        <h2>{{ businessInfo.name }}</h2>
+        <p class="teaser-text-main">
+          {{ 'about.text1' | translate }}
+        </p>
+        <p class="teaser-text-sub">
+          {{ 'about.text2' | translate }}
+        </p>
+        <div class="teaser-actions">
+          <a routerLink="/chi-siamo" class="btn btn-outline">{{ 'nav.about' | translate }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: PORTFOLIO / COMPLETED PROJECTS (Signal-Driven Filters) -->
+  <section class="section portfolio-section bg-light position-relative overflow-hidden">
+    <div class="bg-watermark">PORTFOLIO</div>
+    <div class="container">
+      <div class="section-header">
+        <h2>{{ 'portfolio.title' | translate }}</h2>
+        <p>{{ 'portfolio.subtitle' | translate }}</p>
+      </div>
+
+      <!-- Categories Filter Tabs -->
+      <div class="portfolio-filters">
+        <button 
+          [class.active]="selectedCategory() === 'all'" 
+          (click)="filterCategory('all')"
+        >
+          {{ isIt() ? 'Tutti' : 'All' }}
+        </button>
+        <button 
+          [class.active]="selectedCategory() === 'flooring'" 
+          (click)="filterCategory('flooring')"
+        >
+          {{ isIt() ? 'Pavimenti' : 'Flooring' }}
+        </button>
+        <button 
+          [class.active]="selectedCategory() === 'renovations'" 
+          (click)="filterCategory('renovations')"
+        >
+          {{ isIt() ? 'Ristrutturazioni' : 'Renovations' }}
+        </button>
+        <button 
+          [class.active]="selectedCategory() === 'roof'" 
+          (click)="filterCategory('roof')"
+        >
+          {{ isIt() ? 'Lastrici Solari' : 'Flat Roofs' }}
+        </button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="portfolio-grid">
+        @for (project of filteredProjects(); track project.id) {
+          <div class="portfolio-item animate-grid-item">
+            <div class="portfolio-media">
+              <div class="media-placeholder-gradient" [class]="project.placeholderClass">
+                @if (project.iconType === 'flooring') {
+                  <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32" fill="currentColor">
+                    <path d="M120-120v-80h720v80H120Zm120-160v-320h120v320H240Zm240 0v-520h120v520H480Zm240 0v-200h120v200H720Z"/>
+                  </svg>
+                } @else if (project.iconType === 'renovations') {
+                  <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32" fill="currentColor">
+                    <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 480v480H520v-240h-80v240H160Zm320-350Z"/>
+                  </svg>
+                } @else if (project.iconType === 'roof') {
+                  <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32" fill="currentColor">
+                    <path d="M480-120 120-480h240v-360h240v360h240L480-120Zm0-114 186-186H520v-360h-80v360H294l186 186Zm0-186Z"/>
+                  </svg>
+                }
+                <span class="placeholder-tip">Sostituisci in assets/images/</span>
+              </div>
+              <div class="portfolio-overlay">
+                <span class="project-category">{{ project.categoryKey }}</span>
+                <h3 class="project-title">{{ project.titleKey }}</h3>
+                <span class="project-location">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16" fill="currentColor">
+                    <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 400Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q124 0 220.5 89T797.5-552q0 115-79.5 232.5T480-80Z"/>
+                  </svg>
+                  {{ project.location }}
+                </span>
+              </div>
+            </div>
+          </div>
+        } @empty {
+          <div class="portfolio-empty">
+            <p>Nessun lavoro trovato in questa categoria.</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Accordion FAQ Section -->
+  <section class="section faq-section bg-cream position-relative overflow-hidden">
+    <div class="bg-watermark">DOMANDE</div>
+    <div class="container">
+      <div class="section-header">
+        <h2>{{ isIt() ? 'Domande Frequenti' : 'Common Questions' }}</h2>
+        <p>{{ isIt() ? 'Tutto quello che c’è da sapere sui nostri interventi e sulla gestione del cantiere' : 'Everything you need to know about our work and on-site management' }}</p>
+      </div>
+
+      <div class="accordion-container">
+        @for (faq of faqs; track $index) {
+          <div 
+            class="accordion-item" 
+            [class.active]="openFaqIndex() === $index"
+          >
+            <button class="accordion-trigger" (click)="toggleFaq($index)">
+              <span class="faq-question">{{ isIt() ? faq.questionIt : faq.questionEn }}</span>
+              <span class="faq-icon-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">
+                  <path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/>
+                </svg>
+              </span>
+            </button>
+            <div class="accordion-content">
+              <p>{{ isIt() ? faq.answerIt : faq.answerEn }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- High-Impact CTA Row -->
+  <section class="section bg-dark cta-section">
+    <div class="container cta-container">
+      <h2 class="cta-title">Vuoi iniziare la tua ristrutturazione?</h2>
+      <p class="cta-desc">Assistiamo i nostri clienti passo dopo passo, garantendo serietà, professionalità e un unico interlocutore in cantiere.</p>
+      <a routerLink="/contatti" class="btn btn-primary btn-cta-glow">{{ 'hero.cta' | translate }}</a>
+    </div>
+  </section>
+</div>

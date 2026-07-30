@@ -1,0 +1,147 @@
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-text-light);
+  padding: 80px 0 0 0;
+  border-top: 3px solid var(--color-primary);
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1.8fr;
+    gap: 40px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--color-border-dark);
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// Logo Light Version
+.logo-light {
+  display: flex;
+  align-items: center;
+  transition: var(--transition-smooth);
+  
+  .logo-image-footer {
+    max-height: 65px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: var(--transition-fast);
+    
+    &:hover {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+  }
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: var(--color-text-light-muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.col-title {
+  font-family: var(--font-headings);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  a {
+    font-size: 14px;
+    color: var(--color-text-light-muted);
+    font-weight: 300;
+
+    &:hover {
+      color: var(--color-primary-light);
+      transform: translateX(4px);
+    }
+  }
+}
+
+.footer-info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+  }
+
+  .info-label {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  .info-value {
+    color: var(--color-text-light-muted);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  a.info-value:hover {
+    color: var(--color-primary-light);
+  }
+}
+
+// Bottom Row / Legal Links
+.footer-bottom {
+  background-color: #16181a;
+  padding: 30px 0;
+  font-size: 13px;
+  color: var(--color-text-light-muted);
+  font-weight: 300;
+
+  .bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+  }
+
+  .copyright {
+    letter-spacing: 0.2px;
+  }
+
+  .piva {
+    font-family: var(--font-headings);
+    letter-spacing: 0.5px;
+  }
+}

@@ -1,0 +1,410 @@
+// Services Page Styles - WordPress Premium Editorial
+
+.page-header {
+  position: relative;
+  height: 45vh;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(circle at 90% 10%, #1e293b 0%, #0f172a 100%);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+  }
+
+  .header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 10;
+    color: var(--color-text-light);
+  }
+
+  .breadcrumb {
+    display: inline-block;
+    font-family: var(--font-headings);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+
+    a {
+      color: #94a3b8; // Slate 400
+      
+      &:hover {
+        color: var(--color-primary-light);
+      }
+    }
+  }
+
+  h1 {
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 768px) {
+      font-size: 38px;
+    }
+  }
+
+  .header-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: #cbd5e1; // Slate 300
+    max-width: 650px;
+    line-height: 1.6;
+  }
+}
+
+// Service Showcase Rows
+.service-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+
+  @media (max-width: 768px) {
+    gap: 80px;
+  }
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 80px;
+  align-items: center;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  &.reverse {
+    grid-template-columns: 1.15fr 1fr;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
+
+    .service-media {
+      order: 2;
+
+      @media (max-width: 992px) {
+        order: 1;
+      }
+    }
+
+    .service-info {
+      order: 1;
+
+      @media (max-width: 992px) {
+        order: 2;
+      }
+    }
+  }
+}
+
+.service-media {
+  width: 100%;
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .service-number {
+    font-family: var(--font-headings);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 6px;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+  }
+
+  h2 {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 22px;
+    letter-spacing: -1px;
+    color: var(--color-dark);
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+  }
+
+  .service-description {
+    font-size: 17px;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+
+  .service-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+
+    li {
+      position: relative;
+      padding-left: 28px;
+      font-size: 16px;
+      color: var(--color-text-dark);
+      line-height: 1.6;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+      }
+
+      strong {
+        color: var(--color-dark);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Media Placeholders (Visual Representations)
+
+// 1. Flooring
+.pattern-box-flooring {
+  background-color: var(--color-dark);
+  padding: 30px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+
+  .flooring-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    aspect-ratio: 4 / 3;
+
+    .tile {
+      background-color: var(--color-dark-muted);
+      border-radius: var(--border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-light-muted);
+      font-family: var(--font-headings);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      &:hover {
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+        transform: scale(1.03);
+      }
+
+      &.stone {
+        background-color: #1e293b;
+      }
+      &.wood {
+        background-color: #3b2a20; // Soft wood terracotta tones
+      }
+      &.pavers {
+        background-color: #27303f;
+      }
+      &.custom-tile {
+        background: linear-gradient(135deg, #334155, #1e293b);
+      }
+    }
+  }
+}
+
+// 2. Renovations
+.pattern-box-renovations {
+  background-color: var(--color-dark);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  // Blueprint background grid
+  background-image: 
+    linear-gradient(rgba(224, 94, 27, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(224, 94, 27, 0.05) 1px, transparent 1px);
+  background-size: 24px 28px;
+
+  .blueprint-line {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 1.5px;
+    background-color: rgba(224, 94, 27, 0.25);
+  }
+
+  .blueprint-center {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    span {
+      font-family: var(--font-headings);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--color-text-light);
+    }
+  }
+}
+
+// 3. Roof layers
+.pattern-box-roof {
+  background-color: var(--color-dark);
+  aspect-ratio: 4 / 3;
+  padding: 40px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .roof-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .layer {
+      padding: 18px;
+      border-radius: var(--border-radius-md);
+      font-family: var(--font-headings);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 1px;
+      transition: var(--transition-fast);
+
+      &.layer-top {
+        background-color: var(--color-primary);
+        color: var(--color-text-light);
+        border: 1px solid var(--color-primary-light);
+        
+        &:hover {
+          background-color: var(--color-primary-light);
+        }
+      }
+
+      &.layer-mid {
+        background-color: var(--color-dark-light);
+        color: #cbd5e1;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      &.layer-base {
+        background-color: var(--color-dark-muted);
+        color: #cbd5e1;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+    }
+  }
+}
+
+// 4. Wood/Furniture
+.pattern-box-custom {
+  background-color: var(--color-dark);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wood-slats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    position: relative;
+
+    .slat {
+      height: 26px;
+      background-color: #3b2a20; // Wood slat warm tone
+      border-left: 6px solid var(--color-primary);
+      border-radius: 3px;
+    }
+
+    .slat-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-headings);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--color-text-light);
+      background-color: rgba(15, 23, 42, 0.9);
+      padding: 10px 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--border-radius-sm);
+      white-space: nowrap;
+    }
+  }
+}
+
+// Service CTA Content
+.service-cta-content {
+  max-width: 750px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 800;
+  }
+
+  p {
+    font-size: 18px;
+    color: var(--color-text-muted);
+    margin-bottom: 36px;
+  }
+}

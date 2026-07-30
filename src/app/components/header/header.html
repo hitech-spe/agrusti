@@ -1,0 +1,107 @@
+<header class="header" [class.shrunk]="isScrolled()">
+  <div class="header-container">
+    <!-- Logo / Brand -->
+    <a routerLink="/" class="logo" (click)="closeMobileMenu()">
+      <img src="assets/images/newLogo.webp" alt="Antonio Agrusti SRLS" class="logo-image" />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-desktop">
+      <ul class="nav-links">
+        <li>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            {{ 'nav.home' | translate }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/chi-siamo" routerLinkActive="active">
+            {{ 'nav.about' | translate }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/servizi" routerLinkActive="active">
+            {{ 'nav.services' | translate }}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/contatti" routerLinkActive="active" class="nav-cta-link">
+            {{ 'nav.contact' | translate }}
+          </a>
+        </li>
+      </ul>
+
+      <!-- Language Selector -->
+      <div class="lang-selector">
+        <button
+          [class.active]="translationService.currentLang() === 'it'"
+          (click)="changeLang('it')"
+          aria-label="Italiano"
+        >
+          IT
+        </button>
+        <span class="lang-divider">|</span>
+        <button
+          [class.active]="translationService.currentLang() === 'en'"
+          (click)="changeLang('en')"
+          aria-label="English"
+        >
+          EN
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      class="mobile-menu-btn"
+      [class.open]="isMobileMenuOpen()"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Navigation -->
+  <div class="nav-mobile" [class.open]="isMobileMenuOpen()">
+    <ul class="nav-links-mobile">
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">
+          {{ 'nav.home' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/chi-siamo" routerLinkActive="active" (click)="closeMobileMenu()">
+          {{ 'nav.about' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/servizi" routerLinkActive="active" (click)="closeMobileMenu()">
+          {{ 'nav.services' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="/contatti" routerLinkActive="active" (click)="closeMobileMenu()">
+          {{ 'nav.contact' | translate }}
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile Language Selector -->
+    <div class="lang-selector-mobile">
+      <button
+        [class.active]="translationService.currentLang() === 'it'"
+        (click)="changeLang('it')"
+      >
+        ITALIANO
+      </button>
+      <button
+        [class.active]="translationService.currentLang() === 'en'"
+        (click)="changeLang('en')"
+      >
+        ENGLISH
+      </button>
+    </div>
+  </div>
+</header>
