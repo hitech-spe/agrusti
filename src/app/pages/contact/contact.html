@@ -15,8 +15,8 @@
       
       <!-- Contact Form Side -->
       <div class="contact-form-container">
-        <h2>Invia un Messaggio</h2>
-        <p class="form-desc">Completa il modulo sottostante, il nostro team ti risponderà entro 24 ore lavorative.</p>
+        <h2>{{ 'contact.form.title' | translate }}</h2>
+        <p class="form-desc">{{ 'contact.form.desc' | translate }}</p>
         
         <!-- Success Alert -->
         @if (isSubmitted()) {
@@ -25,8 +25,21 @@
               <path d="M382-240 154-472l57-57 171 171 467-467 57 57-524 528Z"/>
             </svg>
             <div>
-              <strong>Invio Completato!</strong>
+              <strong>{{ 'contact.form.successTitle' | translate }}</strong>
               <p>{{ 'contact.success' | translate }}</p>
+            </div>
+          </div>
+        }
+
+        <!-- Error Alert -->
+        @if (submitError()) {
+          <div class="alert error-alert">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">
+              <path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/>
+            </svg>
+            <div>
+              <strong>{{ 'contact.form.errTitle' | translate }}</strong>
+              <p>{{ 'contact.error' | translate }}</p>
             </div>
           </div>
         }
@@ -37,10 +50,14 @@
           name="contact" 
           method="POST" 
           data-netlify="true"
+          data-netlify-honeypot="bot-field"
           class="contact-form"
         >
-          <!-- Hidden inputs for Netlify Forms routing -->
+          <!-- Hidden inputs for Netlify Forms routing & Anti-Spam Honeypot -->
           <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden" style="display: none;">
+            <label>Non compilare questo campo: <input name="bot-field" [(ngModel)]="botField" /></label>
+          </p>
 
           <div class="form-group">
             <label for="name">{{ 'contact.name' | translate }} *</label>
@@ -52,10 +69,10 @@
               [(ngModel)]="contactData.name" 
               #nameInput="ngModel"
               [class.error]="nameInput.invalid && (nameInput.dirty || nameInput.touched)"
-              placeholder="es. Antonio Rossi"
+              [placeholder]="'contact.form.placeholderName' | translate"
             />
             @if (nameInput.invalid && (nameInput.dirty || nameInput.touched)) {
-              <span class="field-error">Il nome è obbligatorio.</span>
+              <span class="field-error">{{ 'contact.form.errName' | translate }}</span>
             }
           </div>
 
@@ -71,10 +88,10 @@
                 [(ngModel)]="contactData.email" 
                 #emailInput="ngModel"
                 [class.error]="emailInput.invalid && (emailInput.dirty || emailInput.touched)"
-                placeholder="es. nome@dominio.it"
+                [placeholder]="'contact.form.placeholderEmail' | translate"
               />
               @if (emailInput.invalid && (emailInput.dirty || emailInput.touched)) {
-                <span class="field-error">Inserisci un indirizzo email valido.</span>
+                <span class="field-error">{{ 'contact.form.errEmail' | translate }}</span>
               }
             </div>
 
@@ -88,10 +105,10 @@
                 [(ngModel)]="contactData.phone" 
                 #phoneInput="ngModel"
                 [class.error]="phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)"
-                placeholder="es. 333 1234567"
+                [placeholder]="'contact.form.placeholderPhone' | translate"
               />
               @if (phoneInput.invalid && (phoneInput.dirty || phoneInput.touched)) {
-                <span class="field-error">Il numero di telefono è obbligatorio.</span>
+                <span class="field-error">{{ 'contact.form.errPhone' | translate }}</span>
               }
             </div>
           </div>
@@ -106,19 +123,23 @@
               [(ngModel)]="contactData.message" 
               #messageInput="ngModel"
               [class.error]="messageInput.invalid && (messageInput.dirty || messageInput.touched)"
-              placeholder="Scrivi qui i dettagli del tuo cantiere o le tue richieste di preventivo..."
+              [placeholder]="'contact.form.placeholderMessage' | translate"
             ></textarea>
             @if (messageInput.invalid && (messageInput.dirty || messageInput.touched)) {
-              <span class="field-error">Il messaggio non può essere vuoto.</span>
+              <span class="field-error">{{ 'contact.form.errMessage' | translate }}</span>
             }
           </div>
 
           <button 
             type="submit" 
             class="btn btn-primary submit-btn" 
-            [disabled]="contactForm.invalid"
+            [disabled]="contactForm.invalid || isSubmitting()"
           >
-            {{ 'contact.submit' | translate }}
+            @if (isSubmitting()) {
+              {{ 'contact.submitting' | translate }}
+            } @else {
+              {{ 'contact.submit' | translate }}
+            }
           </button>
         </form>
       </div>
@@ -141,7 +162,7 @@
                 <p>
                   {{ businessInfo.address.street }}<br>
                   {{ businessInfo.address.postalCode }} {{ businessInfo.address.city }} ({{ businessInfo.address.province }})<br>
-                  {{ businessInfo.address.region }} — Italia
+                  {{ businessInfo.address.region }} — {{ 'contact.map.country' | translate }}
                 </p>
               </div>
             </div>
@@ -196,7 +217,7 @@
             </svg>
             <span class="pin-title">{{ businessInfo.name }}</span>
           </div>
-          <span class="map-coords">Loc. {{ businessInfo.address.city }} ({{ businessInfo.address.province }}), {{ businessInfo.address.region }}</span>
+          <span class="map-coords">Loc. {{ businessInfo.address.city }} ({{ businessInfo.address.province }}), {{ businessInfo.address.region }} — {{ 'contact.map.country' | translate }}</span>
         </div>
       </div>
 

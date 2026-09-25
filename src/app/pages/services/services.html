@@ -9,67 +9,70 @@
     </div>
   </section>
 
-  <!-- Detailed Service Showcase (Premium Alternate Rows) -->
+  <!-- Detailed Service Showcase (Premium Alternate Rows: Ristrutturazioni -> Posa -> Lastrico -> Mobili) -->
   <section class="section service-showcase">
     <div class="container">
-      
-      <!-- Service 1: Pavimenti -->
+
+      <!-- Service 1: Ristrutturazioni Chiavi in Mano -->
       <div class="service-row">
         <div class="service-media">
-          <div class="pattern-box-flooring">
-            <div class="flooring-grid">
-              <div class="tile stone"><span>Pietra</span></div>
-              <div class="tile wood"><span>Legno</span></div>
-              <div class="tile pavers"><span>Autobloccanti</span></div>
-              <div class="tile custom-tile"><span>Pavimenti di Pregio</span></div>
+          <div class="pattern-box-renovations">
+            <div class="blueprint-line"></div>
+            <div class="blueprint-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10.5L12 3l9 7.5V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20V10.5z"/>
+                <path d="M9 21.5V14a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v7.5"/>
+                <rect x="7" y="8" width="3" height="3" rx="0.5"/>
+                <rect x="14" y="8" width="3" height="3" rx="0.5"/>
+              </svg>
+              <span>{{ 'services.renovations.badge' | translate }}</span>
             </div>
           </div>
         </div>
         <div class="service-info">
           <span class="service-number">01</span>
-          <h2>{{ 'services.flooring.title' | translate }}</h2>
-          <p class="service-description">{{ 'services.flooring.desc' | translate }}</p>
+          <h2>{{ 'services.renovations.title' | translate }}</h2>
+          <p class="service-description">{{ 'services.renovations.desc' | translate }}</p>
           <ul class="service-bullets">
-            <li><strong>Posa in Pietra Naturale:</strong> Ideale per cortili esterni, viali e interni rustici di pregio.</li>
-            <li><strong>Legno & Parquet:</strong> Installazione impeccabile per calore e raffinatezza degli spazi interni.</li>
-            <li><strong>Masselli Autobloccanti:</strong> Soluzione carrabile drenante, durevole e dal forte impatto geometrico.</li>
+            <li><strong>{{ 'services.renovations.b1.title' | translate }}:</strong> {{ 'services.renovations.b1.desc' | translate }}</li>
+            <li><strong>{{ 'services.renovations.b2.title' | translate }}:</strong> {{ 'services.renovations.b2.desc' | translate }}</li>
+            <li><strong>{{ 'services.renovations.b3.title' | translate }}:</strong> {{ 'services.renovations.b3.desc' | translate }}</li>
           </ul>
         </div>
       </div>
 
-      <!-- Service 2: Ristrutturazioni -->
+      <!-- Service 2: Posa di Pavimenti -->
       <div class="service-row reverse">
         <div class="service-media">
-          <div class="pattern-box-renovations">
-            <div class="blueprint-line"></div>
-            <div class="blueprint-center">
-              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" fill="currentColor">
-                <path d="M120-120v-560l360-240 360 240v560H120Zm80-80h560v-434L480-814 200-634v434Zm160-80h240v-200H360v200Zm80-280q17 0 28.5-11.5T480-500q0-17-11.5-28.5T440-540q-17 0-28.5 11.5T400-500q0 17 11.5 28.5T440-460Z"/>
-              </svg>
-              <span>CHIAVI IN MANO</span>
+          <div class="pattern-box-flooring">
+            <div class="flooring-grid">
+              <div class="tile stone"><span>{{ 'services.tile.stone' | translate }}</span></div>
+              <div class="tile wood"><span>{{ 'services.tile.wood' | translate }}</span></div>
+              <div class="tile pavers"><span>{{ 'services.tile.pavers' | translate }}</span></div>
+              <div class="tile custom-tile"><span>{{ 'services.tile.prestige' | translate }}</span></div>
             </div>
           </div>
         </div>
         <div class="service-info">
           <span class="service-number">02</span>
-          <h2>{{ 'services.renovations.title' | translate }}</h2>
-          <p class="service-description">{{ 'services.renovations.desc' | translate }}</p>
+          <h2>{{ 'services.flooring.title' | translate }}</h2>
+          <p class="service-description">{{ 'services.flooring.desc' | translate }}</p>
           <ul class="service-bullets">
-            <li><strong>Pianificazione Unica:</strong> Gestiamo l'intero progetto sollevando il cliente da ogni stress burocratico o logistico.</li>
-            <li><strong>Dalla Demolizione alla Consegna:</strong> Seguiamo scrupolosamente scavi, demolizioni, opere strutturali, impianti e finiture.</li>
-            <li><strong>Coordinamento Certificato:</strong> Tutte le maestranze in cantiere lavorano in stretta sinergia sotto la nostra attenta guida.</li>
+            <li><strong>{{ 'services.flooring.b1.title' | translate }}:</strong> {{ 'services.flooring.b1.desc' | translate }}</li>
+            <li><strong>{{ 'services.flooring.b2.title' | translate }}:</strong> {{ 'services.flooring.b2.desc' | translate }}</li>
+            <li><strong>{{ 'services.flooring.b3.title' | translate }}:</strong> {{ 'services.flooring.b3.desc' | translate }}</li>
           </ul>
         </div>
       </div>
 
-      <!-- Service 3: Lastrico Solare -->
+      <!-- Service 3: Lastrico Solare & Coperture -->
       <div class="service-row">
         <div class="service-media">
           <div class="pattern-box-roof">
             <div class="roof-layers">
-              <div class="layer layer-top">Impermeabilizzazione Specifica</div>
-              <div class="layer layer-mid">Isolamento Termico</div>
-              <div class="layer layer-base">Lastrico Solare Portante</div>
+              <div class="layer layer-top">{{ 'services.roof.layer.top' | translate }}</div>
+              <div class="layer layer-mid">{{ 'services.roof.layer.mid' | translate }}</div>
+              <div class="layer layer-base">{{ 'services.roof.layer.base' | translate }}</div>
             </div>
           </div>
         </div>
@@ -78,22 +81,22 @@
           <h2>{{ 'services.roof.title' | translate }}</h2>
           <p class="service-description">{{ 'services.roof.desc' | translate }}</p>
           <ul class="service-bullets">
-            <li><strong>Impermeabilizzazione:</strong> Applicazione di guaine certificate e resine idonee a prevenire ogni infiltrazione.</li>
-            <li><strong>Trattamenti Specifici:</strong> Ripristino delle pendenze, giunti di dilatazione e protezioni anti-radice.</li>
-            <li><strong>Efficienza Energetica:</strong> Coibentazione termica all'avanguardia per massimizzare il risparmio energetico dell'edificio.</li>
+            <li><strong>{{ 'services.roof.b1.title' | translate }}:</strong> {{ 'services.roof.b1.desc' | translate }}</li>
+            <li><strong>{{ 'services.roof.b2.title' | translate }}:</strong> {{ 'services.roof.b2.desc' | translate }}</li>
+            <li><strong>{{ 'services.roof.b3.title' | translate }}:</strong> {{ 'services.roof.b3.desc' | translate }}</li>
           </ul>
         </div>
       </div>
 
-      <!-- Service 4: Mobili e Arredi -->
-      <div class="service-row reverse">
+      <!-- Service 4: Mobili su Misura & Finiture -->
+      <!--div class="service-row reverse">
         <div class="service-media">
           <div class="pattern-box-custom">
             <div class="wood-slats">
               <div class="slat"></div>
               <div class="slat"></div>
               <div class="slat"></div>
-              <span class="slat-label">ARTIGIANATO SU MISURA</span>
+              <span class="slat-label">{{ 'services.custom.badge' | translate }}</span>
             </div>
           </div>
         </div>
@@ -102,12 +105,12 @@
           <h2>{{ 'services.custom.title' | translate }}</h2>
           <p class="service-description">{{ 'services.custom.desc' | translate }}</p>
           <ul class="service-bullets">
-            <li><strong>Arredi Integrati:</strong> Sinergia totale con falegnami per mobili coordinati ed incassati a regola d'arte.</li>
-            <li><strong>Impiantistica d'Avanguardia:</strong> Collaborazione con elettricisti ed idraulici per l'installazione di sistemi domotici ed efficienti.</li>
-            <li><strong>Dettaglio Unico:</strong> Ogni finitura è studiata per sposare perfettamente l'architettura della casa.</li>
+            <li><strong>{{ 'services.custom.b1.title' | translate }}:</strong> {{ 'services.custom.b1.desc' | translate }}</li>
+            <li><strong>{{ 'services.custom.b2.title' | translate }}:</strong> {{ 'services.custom.b2.desc' | translate }}</li>
+            <li><strong>{{ 'services.custom.b3.title' | translate }}:</strong> {{ 'services.custom.b3.desc' | translate }}</li>
           </ul>
         </div>
-      </div>
+      </div-->
 
     </div>
   </section>
@@ -115,8 +118,8 @@
   <!-- Service CTA -->
   <section class="section bg-cream">
     <div class="container text-center service-cta-content">
-      <h2>Hai bisogno di una consulenza tecnica?</h2>
-      <p>Siamo pronti ad analizzare le tue esigenze ed offrirti un preventivo dettagliato e trasparente.</p>
+      <h2>{{ 'services.cta.title' | translate }}</h2>
+      <p>{{ 'services.cta.desc' | translate }}</p>
       <a routerLink="/contatti" class="btn btn-primary">{{ 'hero.cta' | translate }}</a>
     </div>
   </section>

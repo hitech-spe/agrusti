@@ -18,5 +18,14 @@
   </head>
   <body>
     <app-root></app-root>
+
+    <!-- Netlify Forms static pre-render for Angular SPA detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
   </body>
 </html>

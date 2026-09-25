@@ -7,10 +7,12 @@ import { BUSINESS_INFO } from '../../config/business-info';
 
 export interface ProjectItem {
   id: number;
-  categoryKey: string;     // e.g. 'Posa Pavimenti'
+  categoryIt: string;
+  categoryEn: string;
   categoryType: 'flooring' | 'renovations' | 'roof';
-  titleKey: string;        // Project name
-  location: string;        // e.g. 'Alberobello (BA)'
+  titleIt: string;
+  titleEn: string;
+  location: string;
   iconType: 'flooring' | 'renovations' | 'roof';
   placeholderClass: string;
 }
@@ -36,54 +38,66 @@ export class HomeComponent implements OnInit {
   private projectsSignal = signal<ProjectItem[]>([
     {
       id: 1,
-      categoryKey: 'Posa Pavimenti',
-      categoryType: 'flooring',
-      titleKey: 'Cortile in Pietra Naturale',
-      location: 'Alberobello (BA)',
-      iconType: 'flooring',
-      placeholderClass: 'flooring-item'
-    },
-    {
-      id: 2,
-      categoryKey: 'Ristrutturazioni',
+      categoryIt: 'Ristrutturazioni',
+      categoryEn: 'Turnkey Renovations',
       categoryType: 'renovations',
-      titleKey: "Ristrutturazione d'Interni Villa",
+      titleIt: "Ristrutturazione d'Interni Villa",
+      titleEn: "Villa Interior Renovation",
       location: 'Noci (BA)',
       iconType: 'renovations',
       placeholderClass: 'renovations-item'
     },
     {
+      id: 2,
+      categoryIt: 'Posa Pavimenti',
+      categoryEn: 'Flooring Installation',
+      categoryType: 'flooring',
+      titleIt: 'Cortile in Pietra Naturale',
+      titleEn: 'Natural Stone Courtyard',
+      location: 'Alberobello (BA)',
+      iconType: 'flooring',
+      placeholderClass: 'flooring-item'
+    },
+    {
       id: 3,
-      categoryKey: 'Trattamenti Lastrico Solare',
+      categoryIt: 'Trattamenti Lastrico Solare',
+      categoryEn: 'Flat Roof Treatments',
       categoryType: 'roof',
-      titleKey: 'Impermeabilizzazione & Isolamento',
+      titleIt: 'Impermeabilizzazione & Isolamento',
+      titleEn: 'Waterproofing & Insulation',
       location: 'Putignano (BA)',
       iconType: 'roof',
       placeholderClass: 'roof-item'
     },
     {
       id: 4,
-      categoryKey: 'Posa Pavimenti',
-      categoryType: 'flooring',
-      titleKey: 'Parquet Rovere Massello',
-      location: 'Locorotondo (BA)',
-      iconType: 'flooring',
-      placeholderClass: 'parquet-item'
-    },
-    {
-      id: 5,
-      categoryKey: 'Ristrutturazioni',
+      categoryIt: 'Ristrutturazioni',
+      categoryEn: 'Turnkey Renovations',
       categoryType: 'renovations',
-      titleKey: 'Ristrutturazione Interna Chiavi in Mano',
+      titleIt: 'Ristrutturazione Interna Chiavi in Mano',
+      titleEn: 'Turnkey Interior Renovation',
       location: 'Bari (BA)',
       iconType: 'renovations',
       placeholderClass: 'renovations-item'
     },
     {
-      id: 6,
-      categoryKey: 'Posa Pavimenti',
+      id: 5,
+      categoryIt: 'Posa Pavimenti',
+      categoryEn: 'Flooring Installation',
       categoryType: 'flooring',
-      titleKey: 'Rifacimento Cortile in Autobloccanti',
+      titleIt: 'Parquet Rovere Massello',
+      titleEn: 'Solid Oak Parquet',
+      location: 'Locorotondo (BA)',
+      iconType: 'flooring',
+      placeholderClass: 'parquet-item'
+    },
+    {
+      id: 6,
+      categoryIt: 'Posa Pavimenti',
+      categoryEn: 'Flooring Installation',
+      categoryType: 'flooring',
+      titleIt: 'Rifacimento Cortile in Autobloccanti',
+      titleEn: 'Interlocking Pavers Courtyard',
       location: 'Noci (BA)',
       iconType: 'flooring',
       placeholderClass: 'flooring-item'
@@ -106,14 +120,14 @@ export class HomeComponent implements OnInit {
     {
       questionIt: 'Quali tipologie di pavimenti posate?',
       questionEn: 'What types of flooring do you install?',
-      answerIt: 'Posiamo pavimenti in pietra naturale (interni ed esterni), parquet in legno pregiato di ogni tipo, e masselli autobloccanti drenanti e carrabili per viali e cortili.',
-      answerEn: 'We install premium natural stone flooring (indoor & outdoor), hardwood/parquet of all kinds, and highly durable interlocking pavers for driveways and courtyards.'
+      answerIt: 'Posiamo pavimenti in pietra naturale e materiali lapidei; legno massello, multistrato, laminati e SPC; pavimentazioni autobloccanti in cemento, pietra e WPC (legno per esterno).',
+      answerEn: 'We install natural stone and masonry flooring; solid wood, engineered multi-layer wood, laminate, and SPC; interlocking pavers in concrete, stone, and WPC (outdoor composite wood).'
     },
     {
       questionIt: 'Cosa si intende per ristrutturazione "chiavi in mano"?',
       questionEn: 'What does "turnkey renovation" mean?',
-      answerIt: 'Significa che gestiamo noi l’intero cantiere dalle demolizioni iniziali fino alle finiture di pregio e alla consegna finale. Avrai un unico interlocutore (Antonio Agrusti) senza doverti preoccupare di coordinare elettricisti, idraulici o carpentieri.',
-      answerEn: 'It means we manage the entire site from initial demolition to premium finishes and final handover. You will have a single main point of contact (Antonio Agrusti) without coordinating carpenters, plumbers, or electricians.'
+      answerIt: 'Significa che gestiamo noi l’intero cantiere dalle demolizioni iniziali fino alle finiture di pregio e alla consegna finale. Avrai un unico interlocutore (Antonio Agrusti) senza doverti preoccupare di coordinare le parti edili ed impiantistiche.',
+      answerEn: 'It means we manage the entire site from initial demolition to premium finishes and final handover. You will have a single point of contact (Antonio Agrusti) without having to worry about coordinating building works and technical installations.'
     },
     {
       questionIt: 'Effettuate sopralluoghi e preventivi gratuiti?',
@@ -131,8 +145,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     const isIt = this.translationService.currentLang() === 'it';
-    const title = isIt 
-      ? 'Posa Pavimenti e Ristrutturazioni Chiavi in Mano' 
+    const title = isIt
+      ? 'Posa Pavimenti e Ristrutturazioni Chiavi in Mano'
       : 'Floor Laying and Turnkey Renovations';
     const description = isIt
       ? `${BUSINESS_INFO.name} dal 2014 realizza posa pavimenti in pietra, legno e autobloccanti, e ristrutturazioni edili complete chiavi in mano in Puglia.`
