@@ -1,21 +1,10 @@
-import { Component, inject, OnInit, signal, computed } from '@angular/core';
+import { Component, inject, OnInit, signal, computed, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslationService } from '../../services/translation.service';
 import { TranslatePipe } from '../../services/translate.pipe';
 import { SeoService } from '../../services/seo.service';
 import { BUSINESS_INFO } from '../../config/business-info';
-
-export interface ProjectItem {
-  id: number;
-  categoryIt: string;
-  categoryEn: string;
-  categoryType: 'flooring' | 'renovations' | 'roof';
-  titleIt: string;
-  titleEn: string;
-  location: string;
-  iconType: 'flooring' | 'renovations' | 'roof';
-  placeholderClass: string;
-}
+import { PROJECTS_DATA, ProjectItem, ProjectCategory } from '../../config/projects-data';
 
 @Component({
   selector: 'app-home',
@@ -34,84 +23,32 @@ export class HomeComponent implements OnInit {
   // Selected Filter Category Signal ('all', 'flooring', 'renovations', 'roof')
   protected selectedCategory = signal<string>('all');
 
-  // List of Projects (Configured dynamically as a Signal)
-  private projectsSignal = signal<ProjectItem[]>([
-    {
-      id: 1,
-      categoryIt: 'Ristrutturazioni',
-      categoryEn: 'Turnkey Renovations',
-      categoryType: 'renovations',
-      titleIt: "Ristrutturazione d'Interni Villa",
-      titleEn: "Villa Interior Renovation",
-      location: 'Noci (BA)',
-      iconType: 'renovations',
-      placeholderClass: 'renovations-item'
-    },
-    {
-      id: 2,
-      categoryIt: 'Posa Pavimenti',
-      categoryEn: 'Flooring Installation',
-      categoryType: 'flooring',
-      titleIt: 'Cortile in Pietra Naturale',
-      titleEn: 'Natural Stone Courtyard',
-      location: 'Alberobello (BA)',
-      iconType: 'flooring',
-      placeholderClass: 'flooring-item'
-    },
-    {
-      id: 3,
-      categoryIt: 'Trattamenti Lastrico Solare',
-      categoryEn: 'Flat Roof Treatments',
-      categoryType: 'roof',
-      titleIt: 'Impermeabilizzazione & Isolamento',
-      titleEn: 'Waterproofing & Insulation',
-      location: 'Putignano (BA)',
-      iconType: 'roof',
-      placeholderClass: 'roof-item'
-    },
-    {
-      id: 4,
-      categoryIt: 'Ristrutturazioni',
-      categoryEn: 'Turnkey Renovations',
-      categoryType: 'renovations',
-      titleIt: 'Ristrutturazione Interna Chiavi in Mano',
-      titleEn: 'Turnkey Interior Renovation',
-      location: 'Bari (BA)',
-      iconType: 'renovations',
-      placeholderClass: 'renovations-item'
-    },
-    {
-      id: 5,
-      categoryIt: 'Posa Pavimenti',
-      categoryEn: 'Flooring Installation',
-      categoryType: 'flooring',
-      titleIt: 'Parquet Rovere Massello',
-      titleEn: 'Solid Oak Parquet',
-      location: 'Locorotondo (BA)',
-      iconType: 'flooring',
-      placeholderClass: 'parquet-item'
-    },
-    {
-      id: 6,
-      categoryIt: 'Posa Pavimenti',
-      categoryEn: 'Flooring Installation',
-      categoryType: 'flooring',
-      titleIt: 'Rifacimento Cortile in Autobloccanti',
-      titleEn: 'Interlocking Pavers Courtyard',
-      location: 'Noci (BA)',
-      iconType: 'flooring',
-      placeholderClass: 'flooring-item'
-    }
-  ]);
+  // List of Projects from Centralized Config
+  protected projects = signal<ProjectItem[]>(PROJECTS_DATA);
 
-  // Reactive Computed Filter Signal (Recalculates instantly upon category change!)
+  // Dynamic Category Counts for Filter Tabs
+  protected categoryCounts = computed(() => {
+    const list = this.projects();
+    return {
+      all: list.length,
+      flooring: list.filter(p => p.category === 'flooring').length,
+      renovations: list.filter(p => p.category === 'renovations').length,
+      roof: list.filter(p => p.category === 'roof').length
+    };
+  });
+
+  // Reactive Computed Filter Signal
   protected filteredProjects = computed(() => {
     const category = this.selectedCategory();
     if (category === 'all') {
-      return this.projectsSignal();
+      return this.projects();
     }
-    return this.projectsSignal().filter(p => p.categoryType === category);
+    return this.projects().filter(p => p.category === category);
   });
+
+  // Lightbox Modal State Signals
+  protected activeProject = signal<ProjectItem | null>(null);
+  protected activeImageIndex = signal<number>(0);
 
   // FAQ Accordion State (Signals based)
   protected openFaqIndex = signal<number | null>(null);
@@ -158,6 +95,56 @@ export class HomeComponent implements OnInit {
 
   protected filterCategory(category: string): void {
     this.selectedCategory.set(category);
+  }
+
+  // Lightbox Controls
+  protected openLightbox(project: ProjectItem, index = 0): void {
+    this.activeProject.set(project);
+    this.activeImageIndex.set(index);
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  protected closeLightbox(): void {
+    this.activeProject.set(null);
+    this.activeImageIndex.set(0);
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+    }
+  }
+
+  protected nextImage(): void {
+    const proj = this.activeProject();
+    if (!proj) return;
+    const nextIdx = (this.activeImageIndex() + 1) % proj.images.length;
+    this.activeImageIndex.set(nextIdx);
+  }
+
+  protected prevImage(): void {
+    const proj = this.activeProject();
+    if (!proj) return;
+    const prevIdx = (this.activeImageIndex() - 1 + proj.images.length) % proj.images.length;
+    this.activeImageIndex.set(prevIdx);
+  }
+
+  protected setImageIndex(index: number): void {
+    const proj = this.activeProject();
+    if (!proj || index < 0 || index >= proj.images.length) return;
+    this.activeImageIndex.set(index);
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  protected handleKeyDown(event: KeyboardEvent): void {
+    if (!this.activeProject()) return;
+
+    if (event.key === 'Escape') {
+      this.closeLightbox();
+    } else if (event.key === 'ArrowRight') {
+      this.nextImage();
+    } else if (event.key === 'ArrowLeft') {
+      this.prevImage();
+    }
   }
 
   protected toggleFaq(index: number): void {

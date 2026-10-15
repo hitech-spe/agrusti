@@ -254,89 +254,83 @@
         <p>{{ 'portfolio.subtitle' | translate }}</p>
       </div>
 
-      <!-- Categories Filter Tabs (Ordered: All -> Ristrutturazioni -> Pavimenti -> Lastrici) -->
+      <!-- Categories Filter Tabs (Ordered: All -> Pavimenti -> Ristrutturazioni -> Impermeabilizzazioni) -->
       <div class="portfolio-filters" data-aos="fade-up" data-aos-delay="100">
         <button
           [class.active]="selectedCategory() === 'all'"
           (click)="filterCategory('all')"
         >
           {{ 'portfolio.filter.all' | translate }}
-        </button>
-        <button
-          [class.active]="selectedCategory() === 'renovations'"
-          (click)="filterCategory('renovations')"
-        >
-          {{ 'portfolio.filter.renovations' | translate }}
+          <span class="filter-count">{{ categoryCounts().all }}</span>
         </button>
         <button
           [class.active]="selectedCategory() === 'flooring'"
           (click)="filterCategory('flooring')"
         >
           {{ 'portfolio.filter.flooring' | translate }}
+          <span class="filter-count">{{ categoryCounts().flooring }}</span>
+        </button>
+        <button
+          [class.active]="selectedCategory() === 'renovations'"
+          (click)="filterCategory('renovations')"
+        >
+          {{ 'portfolio.filter.renovations' | translate }}
+          <span class="filter-count">{{ categoryCounts().renovations }}</span>
         </button>
         <button
           [class.active]="selectedCategory() === 'roof'"
           (click)="filterCategory('roof')"
         >
           {{ 'portfolio.filter.roof' | translate }}
+          <span class="filter-count">{{ categoryCounts().roof }}</span>
         </button>
       </div>
 
       <!-- Projects Grid -->
       <div class="portfolio-grid" data-aos="fade-up" data-aos-delay="200">
         @for (project of filteredProjects(); track project.id) {
-          <div class="portfolio-item animate-grid-item">
+          <article class="portfolio-card animate-grid-item" (click)="openLightbox(project)">
             <div class="portfolio-media">
-              <div class="media-placeholder-gradient" [class]="project.placeholderClass">
-                @if (project.iconType === 'renovations') {
-                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 10.5L12 3l9 7.5V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20V10.5z"/>
-                    <path d="M9 21.5V14a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v7.5"/>
-                    <rect x="7" y="8" width="3" height="3" rx="0.5"/>
-                    <rect x="14" y="8" width="3" height="3" rx="0.5"/>
+              <img
+                [src]="project.coverImage"
+                [alt]="isIt() ? project.titleIt : project.titleEn"
+                loading="lazy"
+                decoding="async"
+                class="portfolio-img"
+              />
+              <div class="portfolio-badges">
+                <span class="badge-category">{{ isIt() ? project.categoryLabelIt : project.categoryLabelEn }}</span>
+                <span class="badge-count">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
                   </svg>
-                } @else if (project.iconType === 'flooring') {
-                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="8.5" height="5.5" rx="1"/>
-                    <rect x="12.5" y="3" width="8.5" height="5.5" rx="1"/>
-                    <rect x="3" y="9.5" width="4" height="5" rx="1"/>
-                    <rect x="8" y="9.5" width="8" height="5" rx="1"/>
-                    <rect x="17" y="9.5" width="4" height="5" rx="1"/>
-                    <rect x="3" y="15.5" width="8.5" height="5.5" rx="1"/>
-                    <rect x="12.5" y="15.5" width="8.5" height="5.5" rx="1"/>
-                  </svg>
-                } @else if (project.iconType === 'roof') {
-                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="7" cy="6" r="2.5"/>
-                    <path d="M7 1.5v1.5"/>
-                    <path d="M2.5 6h1.5"/>
-                    <path d="M11.5 6h-1.5"/>
-                    <path d="M3.8 2.8l1.1 1.1"/>
-                    <path d="M10.2 2.8L9.1 3.9"/>
-                    <path d="M2 13h20"/>
-                    <path d="M18 13V9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4"/>
-                    <path d="M2 16.5h20"/>
-                    <path d="M4 16.5V21"/>
-                    <path d="M8 16.5V21"/>
-                    <path d="M12 16.5V21"/>
-                    <path d="M16 16.5V21"/>
-                    <path d="M20 16.5V21"/>
-                  </svg>
-                }
-                <span class="placeholder-tip">{{ 'portfolio.placeholderTip' | translate }}</span>
+                  {{ project.images.length }} {{ 'portfolio.photoPlural' | translate }}
+                </span>
               </div>
-              <div class="portfolio-overlay">
-                <span class="project-category">{{ isIt() ? project.categoryIt : project.categoryEn }}</span>
-                <h3 class="project-title">{{ isIt() ? project.titleIt : project.titleEn }}</h3>
-                <span class="project-location">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16" fill="currentColor">
-                    <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 400Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q124 0 220.5 89T797.5-552q0 115-79.5 232.5T480-80Z"/>
+              <div class="portfolio-hover-overlay">
+                <span class="preview-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
                   </svg>
-                  {{ project.location }}
+                  {{ 'portfolio.openGallery' | translate }}
                 </span>
               </div>
             </div>
-          </div>
+            
+            <div class="portfolio-info">
+              <h3 class="project-title">{{ isIt() ? project.titleIt : project.titleEn }}</h3>
+              <p class="project-desc">{{ isIt() ? project.descriptionIt : project.descriptionEn }}</p>
+              
+              <div class="project-tags">
+                @for (tag of (isIt() ? project.tagsIt : project.tagsEn); track tag) {
+                  <span class="project-tag">{{ tag }}</span>
+                }
+              </div>
+            </div>
+          </article>
         } @empty {
           <div class="portfolio-empty">
             <p>{{ 'portfolio.empty' | translate }}</p>
@@ -387,3 +381,76 @@
     </div>
   </section>
 </div>
+
+<!-- Interactive Project Lightbox Modal (Top-level inside component to bypass CSS transform containing-blocks) -->
+@if (activeProject(); as currentProj) {
+  <div class="lightbox-backdrop" (click)="closeLightbox()" role="dialog" aria-modal="true" aria-label="Galleria Progetto">
+    <div class="lightbox-container" (click)="$event.stopPropagation()">
+      
+      <!-- Lightbox Header / Controls -->
+      <div class="lightbox-header">
+        <div class="lightbox-title-wrap">
+          <span class="lightbox-cat-badge">{{ isIt() ? currentProj.categoryLabelIt : currentProj.categoryLabelEn }}</span>
+          <h3 class="lightbox-title">{{ isIt() ? currentProj.titleIt : currentProj.titleEn }}</h3>
+        </div>
+        <div class="lightbox-controls">
+          <span class="lightbox-counter">{{ activeImageIndex() + 1 }} {{ 'portfolio.lightbox.of' | translate }} {{ currentProj.images.length }}</span>
+          <button class="lightbox-btn-close" (click)="closeLightbox()" [attr.aria-label]="'portfolio.lightbox.close' | translate">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Lightbox Stage -->
+      <div class="lightbox-stage">
+        @if (currentProj.images.length > 1) {
+          <button class="lightbox-nav-btn prev" (click)="prevImage()" [attr.aria-label]="'portfolio.lightbox.prev' | translate">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+        }
+
+        <div class="lightbox-image-box">
+          <img
+            [src]="currentProj.images[activeImageIndex()]"
+            [alt]="(isIt() ? currentProj.titleIt : currentProj.titleEn) + ' - Foto ' + (activeImageIndex() + 1)"
+            class="lightbox-main-img lightbox-image"
+          />
+        </div>
+
+        @if (currentProj.images.length > 1) {
+          <button class="lightbox-nav-btn next" (click)="nextImage()" [attr.aria-label]="'portfolio.lightbox.next' | translate">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+        }
+      </div>
+
+      <!-- Lightbox Footer: Details and Thumbnails -->
+      <div class="lightbox-footer">
+        <p class="lightbox-desc-text">{{ isIt() ? currentProj.descriptionIt : currentProj.descriptionEn }}</p>
+
+        @if (currentProj.images.length > 1) {
+          <div class="lightbox-thumbnails">
+            @for (img of currentProj.images; track $index) {
+              <button
+                class="thumb-item"
+                [class.active]="$index === activeImageIndex()"
+                (click)="setImageIndex($index)"
+                [attr.aria-label]="'Foto ' + ($index + 1)"
+              >
+                <img [src]="img" [alt]="'Miniatura ' + ($index + 1)" loading="lazy" />
+              </button>
+            }
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+}

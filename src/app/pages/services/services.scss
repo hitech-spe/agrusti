@@ -198,196 +198,57 @@
 
 // Media Placeholders (Visual Representations)
 
-// 1. Flooring
-.pattern-box-flooring {
-  background-color: var(--color-dark);
-  padding: 30px;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
-
-  .flooring-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    aspect-ratio: 4 / 3;
-
-    .tile {
-      background-color: var(--color-dark-muted);
-      border-radius: var(--border-radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-text-light-muted);
-      font-family: var(--font-headings);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: var(--transition-smooth);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-
-      &:hover {
-        border-color: var(--color-primary);
-        color: var(--color-primary);
-        transform: scale(1.03);
-      }
-
-      &.stone {
-        background-color: #1e293b;
-      }
-      &.wood {
-        background-color: #3b2a20; // Soft wood terracotta tones
-      }
-      &.pavers {
-        background-color: #27303f;
-      }
-      &.custom-tile {
-        background: linear-gradient(135deg, #334155, #1e293b);
-      }
-    }
-  }
-}
-
-// 2. Renovations
-.pattern-box-renovations {
-  background-color: var(--color-dark);
-  aspect-ratio: 4 / 3;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// Media Showcases (Real Completed Works)
+.service-photo-card {
   position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-dark);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 
-  // Blueprint background grid
-  background-image: 
-    linear-gradient(rgba(224, 94, 27, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(224, 94, 27, 0.05) 1px, transparent 1px);
-  background-size: 24px 28px;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
 
-  .blueprint-line {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    right: 10%;
-    height: 1.5px;
-    background-color: rgba(224, 94, 27, 0.25);
-  }
-
-  .blueprint-center {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    color: var(--color-primary);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-
-    span {
-      font-family: var(--font-headings);
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: var(--color-text-light);
+    .service-img {
+      transform: scale(1.05);
     }
   }
-}
 
-// 3. Roof layers
-.pattern-box-roof {
-  background-color: var(--color-dark);
-  aspect-ratio: 4 / 3;
-  padding: 40px;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  .roof-layers {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
-    .layer {
-      padding: 18px;
-      border-radius: var(--border-radius-md);
-      font-family: var(--font-headings);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      text-align: center;
-      letter-spacing: 1px;
-      transition: var(--transition-fast);
-
-      &.layer-top {
-        background-color: var(--color-primary);
-        color: var(--color-text-light);
-        border: 1px solid var(--color-primary-light);
-        
-        &:hover {
-          background-color: var(--color-primary-light);
-        }
-      }
-
-      &.layer-mid {
-        background-color: var(--color-dark-light);
-        color: #cbd5e1;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      &.layer-base {
-        background-color: var(--color-dark-muted);
-        color: #cbd5e1;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
-    }
-  }
-}
-
-// 4. Wood/Furniture
-.pattern-box-custom {
-  background-color: var(--color-dark);
-  aspect-ratio: 4 / 3;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .wood-slats {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  .service-img {
     width: 100%;
-    position: relative;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-    .slat {
-      height: 26px;
-      background-color: #3b2a20; // Wood slat warm tone
-      border-left: 6px solid var(--color-primary);
-      border-radius: 3px;
-    }
+  .service-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20, 23, 25, 0.75) 0%, rgba(20, 23, 25, 0.1) 60%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+    z-index: 2;
+  }
 
-    .slat-label {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: var(--font-headings);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: var(--color-text-light);
-      background-color: rgba(15, 23, 42, 0.9);
-      padding: 10px 20px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--border-radius-sm);
-      white-space: nowrap;
-    }
+  .service-badge {
+    font-family: var(--font-headings);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    background: rgba(20, 23, 25, 0.85);
+    border: 1px solid var(--color-primary);
+    backdrop-filter: blur(8px);
+    padding: 8px 16px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
 }
 

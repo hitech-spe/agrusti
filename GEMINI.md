@@ -58,21 +58,14 @@ To adhere to clean architecture and avoid hardcoded duplication of company detai
 - **Logo & Favicons:** Uses the premium transparent background logo asset `assets/images/newLogo.webp` integrated natively in header and footer environments. Favicon and shortcut icon configurations are dynamically linked inside `src/index.html` referencing `/assets/icons/favicon_io/` with full multi-device support (apple-touch-icon, multiple png resolutions, and structured site manifest).
 - **Typography:** Bold, modern headings paired with *Inter* for body readability.
 
-### 5. Galleria / I Nostri Lavori (Portfolio)
-- A highly elegant portfolio grid is integrated on the Home Page (`/`).
-- Currently, it renders stunning, modern CSS placeholders styled with radial-gradients and vector icons to signify flooring, renovations, and flat roof treatments.
-- **How to add actual project images in the future:**
-  1. Save your completed project photos (optimized in `.webp` or `.jpg` format, e.g., `lavoro1.webp`, `lavoro2.webp`) under the `public/assets/images/` directory.
-  2. Open `src/app/pages/home/home.html`.
-  3. Replace the placeholder div:
-     ```html
-     <div class="media-placeholder-gradient flooring-item">...</div>
-     ```
-     with an image tag:
-     ```html
-     <img src="assets/images/lavoro1.webp" alt="Nome Lavoro" class="portfolio-img" />
-     ```
-  4. The styles in `src/styles.scss` will automatically apply elegant borders, soft hover scales, and premium overlay animations to your physical images!
+### 6. Galleria / I Nostri Lavori (Portfolio con Lightbox Interattivo)
+- Gestita in modo centralizzato e tipizzato tramite `src/app/config/projects-data.ts`.
+- Include 8 progetti reali e 39 fotografie scattate sui cantieri di Antonio Agrusti SRLS (parquet a spina italiana, rovere cognac, rovere scuro piallato, SPC rigido con sughero, rivestimenti scale esterne, ristrutturazione bagni con doccia filo pavimento, tramezzi e opere murarie, e impermeabilizzazioni con sistema Sikalastic).
+- **Filtri dinamici basati su Signals** con conteggio in tempo reale: Tutti i Lavori, Posa Pavimenti, Ristrutturazioni, Impermeabilizzazioni & Coperture.
+- **Lightbox Modale Interattivo**: cliccando su qualunque scheda cantiere si apre il visualizzatore a schermo intero con navigazione tra tutte le foto del cantiere, supporto per frecce da tastiera (`ArrowLeft`, `ArrowRight`), tasto `Escape` per chiudere, contatore foto e barra delle miniature cliccabili.
+- **Struttura dei Dati Cantieri:**
+  Ogni cantiere in `PROJECTS_DATA` include `id`, `folder`, `category`, `titleIt`/`titleEn`, `descriptionIt`/`descriptionEn`, `coverImage`, `images[]`, `tagsIt[]`/`tagsEn[]`. Nessun riferimento a località specifiche (in linea con le direttive del committente).
+- Utilizzo trasversale: le foto reali dei cantieri sono valorizzate anche nelle pagine **Servizi** (`/servizi`) e **Chi Siamo** (`/chi-siamo`) per conferire massima autenticità e impatto visivo.
 
 ---
 
