@@ -22,7 +22,7 @@ Founded in 2014, **Antonio Agrusti SRLS** is an excellence-driven building renov
    - **Ristrutturazioni Chiavi in Mano**: Direct management from demolition to final finishes and delivery.
    - **Lastrico Solare & Coperture**: Specialized treatments, professional waterproofing, and thermal insulation.
    - **Mobili su Misura & Finiture**: Collaboration with local carpentry and systems teams.
-4. **Contatti (`/contatti`)**: Integrated communication page featuring a functional form (Netlify Forms compatible), registered office address (Noci, Bari), telephone, professional email, business hours, and an elegant visual map pointer.
+4. **Contatti (`/contatti`)**: Integrated communication page featuring a functional form (Netlify Forms compatible), registered office address (Mottola, Taranto), telephone, professional email, business hours, and an elegant visual map pointer.
 
 ---
 
@@ -40,10 +40,11 @@ Search Engine Optimization is managed dynamically through a custom `SeoService` 
 - Dynamically configures OpenGraph and Twitter cards for premium social sharing previews.
 - Injects a fully structured **JSON-LD Schema (LocalBusiness)** directly into the document `<head>` on route load, boosting appearance in Puglia local searches and Google Maps results.
 
-### 3. Netlify Forms Integration
-The contact page is integrated with Netlify's native form handling.
-- The HTML form uses `data-netlify="true"`, `name="contact"`, and a hidden `form-name` input.
-- Netlify crawler detects these attributes on build, and intercepts standard POST submissions or programmatic submissions gracefully, providing a seamless inbox experience without needing a dedicated backend.
+### 3. EmailJS Direct Email Delivery (`src/app/services/email.service.ts` & `src/app/config/emailjs.config.ts`)
+The contact page directly dispatches inquiries via the official **EmailJS** SDK (`@emailjs/browser`):
+- Connects directly to Antonio Agrusti's email (`antagrust@yahoo.it`) without requiring a server backend.
+- Anti-spam honeypot input protects against automated bots.
+- Integrated fail-safe simulation mode when credentials in `emailjs.config.ts` are pending configuration, preventing runtime breaks during development.
 
 ### 4. Centralized Business Metadata Config (`src/app/config/business-info.ts`)
 To adhere to clean architecture and avoid hardcoded duplication of company details (address, phone, VAT, founding year, geopoints, business hours):

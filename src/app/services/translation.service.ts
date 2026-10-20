@@ -140,13 +140,14 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     'contact.info.email': 'Email',
     'contact.info.address': 'Sede Legale',
     'contact.info.hours': 'Orari di Apertura',
-    'contact.info.hours.val': 'Lun - Ven: 08:00 - 18:00 | Sab: 08:00 - 13:00',
+    'contact.info.hours.val': 'Su appuntamento: Lun - Ven 17:00 - 19:00',
     'contact.map.country': 'Italia',
+    'contact.map.directions': 'Ottieni indicazioni su Google Maps',
 
     'footer.description': 'Dal 2014, esistiamo sul territorio con l’intento di portare avanti un concetto di lavoro fatto di qualità, serietà e soddisfazione per la nostra clientela.',
     'footer.sitemap': 'Sitemap',
     'footer.rights': 'Tutti i diritti riservati.',
-    'footer.piva': 'P.IVA / C.F.: 08343750722',
+    'footer.piva': 'P.IVA / C.F.: 03426610733',
 
     'portfolio.title': 'I Nostri Ultimi Lavori',
     'portfolio.subtitle': 'Sfoglia alcuni dei nostri cantieri completati con dedizione e maestria artigianale',
@@ -309,13 +310,14 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     'contact.info.email': 'Email',
     'contact.info.address': 'Registered Office',
     'contact.info.hours': 'Business Hours',
-    'contact.info.hours.val': 'Mon - Fri: 08:00 AM - 06:00 PM | Sat: 08:00 AM - 01:00 PM',
+    'contact.info.hours.val': 'By appointment: Mon - Fri 05:00 PM - 07:00 PM',
     'contact.map.country': 'Italy',
+    'contact.map.directions': 'Get directions on Google Maps',
 
     'footer.description': 'Since 2014, we have been established in our region with the goal of upholding a philosophy of work built on quality, integrity, and client satisfaction.',
     'footer.sitemap': 'Sitemap',
     'footer.rights': 'All rights reserved.',
-    'footer.piva': 'Vat No / Tax Code: 08343750722',
+    'footer.piva': 'Vat No / Tax Code: 03426610733',
 
     'portfolio.title': 'Our Recent Projects',
     'portfolio.subtitle': 'Browse some of our completed construction sites handled with dedication and master craftsmanship',

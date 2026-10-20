@@ -59,6 +59,7 @@ export class SeoService {
       'description': 'Posa di pavimenti di ogni genere pietra, legno, autobloccanti e ristrutturazioni edili chiavi in mano dal 2014.',
       'url': 'https://www.antonioagrustisrls.it',
       'telephone': BUSINESS_INFO.phoneFormatted,
+      'email': BUSINESS_INFO.email,
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': BUSINESS_INFO.address.street,
@@ -76,14 +77,8 @@ export class SeoService {
         {
           '@type': 'OpeningHoursSpecification',
           'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          'opens': '08:00',
-          'closes': '18:00'
-        },
-        {
-          '@type': 'OpeningHoursSpecification',
-          'dayOfWeek': ['Saturday'],
-          'opens': '08:00',
-          'closes': '13:00'
+          'opens': '17:00',
+          'closes': '19:00'
         }
       ],
       'foundingDate': BUSINESS_INFO.foundingYear.toString(),

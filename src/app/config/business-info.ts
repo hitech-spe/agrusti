@@ -38,30 +38,30 @@ export interface BusinessInfo {
 export const BUSINESS_INFO: BusinessInfo = {
   name: 'Antonio Agrusti SRLS',
   legalName: 'Antonio Agrusti S.R.L.S.',
-  vatNumber: '08343750722',
-  taxCode: '08343750722',
-  phone: '+393331234567',
-  phoneFormatted: '+39 333 1234567',
-  email: 'info@antonioagrustisrls.it',
+  vatNumber: '03426610733',
+  taxCode: '03426610733',
+  phone: '+393895010842',
+  phoneFormatted: '+39 389 501 0842',
+  email: 'antagrust@yahoo.it',
   address: {
-    street: 'Via per Alberobello, km 2',
-    city: 'Noci',
-    province: 'BA',
-    postalCode: '70015',
+    street: 'Via Risorgimento, 267/A',
+    city: 'Mottola',
+    province: 'TA',
+    postalCode: '74017',
     region: 'Puglia',
     country: 'IT',
-    full: 'Via per Alberobello, km 2, 70015 Noci (Bari) — Puglia, Italia'
+    full: 'Via Risorgimento, 267/A, 74017 Mottola (Taranto) — Puglia, Italia'
   },
   geo: {
-    latitude: 40.7925,
-    longitude: 17.1264
+    latitude: 40.6358,
+    longitude: 17.0371
   },
   foundingYear: 2014,
   openingHours: {
-    weekdays: 'Lun - Ven: 08:00 - 18:00',
-    saturday: 'Sab: 08:00 - 13:00',
-    rawWeekdays: 'Mo,Tu,We,Th,Fr 08:00-18:00',
-    rawSaturday: 'Sa 08:00-13:00'
+    weekdays: 'Lun - Ven: 17:00 - 19:00 (Su appuntamento)',
+    saturday: 'Sabato chiuso',
+    rawWeekdays: 'Mo,Tu,We,Th,Fr 17:00-19:00',
+    rawSaturday: ''
   },
   socials: {
     facebook: 'https://facebook.com',

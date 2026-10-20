@@ -47,16 +47,12 @@
         <form 
           #contactForm="ngForm" 
           (ngSubmit)="contactForm.valid && onSubmit()" 
-          name="contact" 
-          method="POST" 
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
           class="contact-form"
+          novalidate
         >
-          <!-- Hidden inputs for Netlify Forms routing & Anti-Spam Honeypot -->
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden" style="display: none;">
-            <label>Non compilare questo campo: <input name="bot-field" [(ngModel)]="botField" /></label>
+          <!-- Anti-Spam Honeypot trap (invisibile agli utenti reali) -->
+          <p class="hidden" style="display: none;" aria-hidden="true">
+            <label>Non compilare questo campo: <input name="bot-field" [(ngModel)]="botField" tabindex="-1" autocomplete="off" /></label>
           </p>
 
           <div class="form-group">
@@ -208,16 +204,42 @@
           </div>
         </div>
 
-        <!-- Google Map Aesthetic Placeholder -->
-        <div class="map-placeholder">
-          <div class="map-grid"></div>
-          <div class="map-pin">
-            <svg xmlns="http://www.w3.org/2000/svg" height="36" viewBox="0 -960 960 960" width="36" fill="currentColor">
-              <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 400Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q124 0 220.5 89T797.5-552q0 115-79.5 232.5T480-80Z"/>
-            </svg>
-            <span class="pin-title">{{ businessInfo.name }}</span>
+        <!-- Interactive Google Map -->
+        <div class="interactive-map-card">
+          <div class="map-container">
+            <iframe
+              [src]="mapEmbedUrl"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Google Maps - Antonio Agrusti SRLS"
+            ></iframe>
           </div>
-          <span class="map-coords">Loc. {{ businessInfo.address.city }} ({{ businessInfo.address.province }}), {{ businessInfo.address.region }} — {{ 'contact.map.country' | translate }}</span>
+          <div class="map-card-footer">
+            <div class="map-card-info">
+              <span class="map-pin-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18" fill="currentColor">
+                  <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 400Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q124 0 220.5 89T797.5-552q0 115-79.5 232.5T480-80Z"/>
+                </svg>
+                {{ businessInfo.address.city }} ({{ businessInfo.address.province }})
+              </span>
+              <span class="map-street-preview">{{ businessInfo.address.street }}</span>
+            </div>
+            <a 
+              [href]="googleMapsLink" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="map-directions-btn"
+            >
+              <span>{{ 'contact.map.directions' | translate }}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16" fill="currentColor">
+                <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
 

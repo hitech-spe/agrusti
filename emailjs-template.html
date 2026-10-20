@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>Nuova Richiesta Preventivo - Antonio Agrusti SRLS</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1e293b;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f1f5f9; padding: 30px 15px;">
+    <tr>
+      <td align="center">
+        <!-- Main Card -->
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          
+          <!-- Header Card -->
+          <tr>
+            <td style="background-color: #141719; padding: 32px 30px; text-align: center; border-bottom: 3px solid #c5a059;">
+              <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: 0.5px;">ANTONIO AGRUSTI SRLS</h1>
+              <p style="margin: 6px 0 0 0; color: #c5a059; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Nuovo Contatto dal Sito Web</p>
+            </td>
+          </tr>
+
+          <!-- Intro -->
+          <tr>
+            <td style="padding: 28px 32px 10px 32px;">
+              <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #334155;">
+                Hai ricevuto una nuova richiesta di informazioni o preventivo inviata dal modulo contatti del sito web:
+              </p>
+            </td>
+          </tr>
+
+          <!-- Contact Details Table -->
+          <tr>
+            <td style="padding: 10px 32px 25px 32px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; padding: 18px 22px;">
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #edf2f7; width: 35%; font-weight: 700; color: #475569; font-size: 14px;">Nome e Cognome:</td>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #edf2f7; font-size: 15px; color: #0f172a; font-weight: 600;">{{user_name}}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #edf2f7; font-weight: 700; color: #475569; font-size: 14px;">Cellulare:</td>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #edf2f7; font-size: 15px; color: #0f172a;">
+                    <a href="tel:{{user_phone}}" style="color: #b48530; text-decoration: none; font-weight: 700;">{{user_phone}}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #edf2f7; font-weight: 700; color: #475569; font-size: 14px;">Email:</td>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #edf2f7; font-size: 15px; color: #0f172a;">
+                    <a href="mailto:{{user_email}}" style="color: #2563eb; text-decoration: none;">{{user_email}}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: 700; color: #475569; font-size: 14px;">Data di invio:</td>
+                  <td style="padding: 8px 0; font-size: 14px; color: #64748b;">{{submission_date}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Message Box -->
+          <tr>
+            <td style="padding: 0 32px 30px 32px;">
+              <h2 style="margin: 0 0 10px 0; font-size: 15px; color: #1e293b; text-transform: uppercase; letter-spacing: 0.5px;">Messaggio del Cliente:</h2>
+              <div style="background-color: #ffffff; border-left: 4px solid #c5a059; padding: 18px 20px; font-size: 15px; line-height: 1.6; color: #334155; background-color: #fafaf9; border-radius: 0 8px 8px 0;">
+                <p style="margin: 0; white-space: pre-line;">{{message}}</p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Quick Action Buttons -->
+          <tr>
+            <td style="padding: 0 32px 35px 32px; text-align: center;">
+              <table role="presentation" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                  <td style="border-radius: 6px; background-color: #c5a059; margin-right: 10px;">
+                    <a href="tel:{{user_phone}}" style="font-size: 14px; font-weight: 700; color: #ffffff; text-decoration: none; padding: 12px 22px; display: inline-block;">
+                      📞 Chiama {{user_name}}
+                    </a>
+                  </td>
+                  <td style="width: 14px;"></td>
+                  <td style="border-radius: 6px; background-color: #1e293b;">
+                    <a href="mailto:{{user_email}}?subject=Re:%20Richiesta%20di%20preventivo%20-%20Antonio%20Agrusti%20SRLS" style="font-size: 14px; font-weight: 700; color: #ffffff; text-decoration: none; padding: 12px 22px; display: inline-block;">
+                      ✉️ Rispondi via Email
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer Note -->
+          <tr>
+            <td style="background-color: #f8fafc; padding: 20px 30px; text-align: center; border-top: 1px solid #e2e8f0; font-size: 12px; color: #94a3b8;">
+              Messaggio generato automaticamente dal sito web <strong>Antonio Agrusti SRLS</strong>.<br>
+              Sede Legale: Via Risorgimento, 267/A, 74017 Mottola (TA) &bull; P.IVA 03426610733
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
