@@ -107,4 +107,22 @@ describe('HomeComponent - Galleria Cantieri e Lightbox', () => {
     (component as any).handleKeyDown(new KeyboardEvent('keydown', { key: 'Escape' }));
     expect((component as any).activeProject()).toBeNull();
   });
+
+  it('dovrebbe esporre 3 progetti reali distinti per la Hero section e aprirli nel Lightbox', () => {
+    const heroList = (component as any).heroProjects();
+    expect(heroList.length).toBe(3);
+
+    // I 3 progetti devono essere distinti e avere copertine valide
+    const ids = heroList.map((p: any) => p.id);
+    expect(new Set(ids).size).toBe(3);
+    for (const p of heroList) {
+      expect(p.coverImage).toBeTruthy();
+      expect(p.images.length).toBeGreaterThan(0);
+    }
+
+    // Apertura nel Lightbox della prima card della Hero
+    (component as any).openLightbox(heroList[0], 0);
+    expect((component as any).activeProject()).toBe(heroList[0]);
+    expect((component as any).activeImageIndex()).toBe(0);
+  });
 });

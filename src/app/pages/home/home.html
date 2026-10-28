@@ -39,26 +39,108 @@
         </div>
       </div>
 
-      <!-- Right Column: Asymmetric Tactile Slabs (Physical material representers overlapping) -->
+      <!-- Right Column: Featured Works Showcase (Real project photos with interactive Lightbox) -->
       <div class="hero-visual-side" data-aos="fade-left" data-aos-delay="150">
-        <div class="tactile-composition">
-          <!-- Slab 1: Natural Stone -->
-          <div class="tactile-slab slab-stone">
-            <span class="slab-badge">{{ 'hero.slab.stone' | translate }}</span>
-            <div class="slab-pattern stone-pattern"></div>
-          </div>
-          <!-- Slab 2: Premium Wood Parquet -->
-          <div class="tactile-slab slab-wood">
-            <span class="slab-badge">{{ 'hero.slab.wood' | translate }}</span>
-            <div class="slab-pattern wood-pattern"></div>
-          </div>
-          <!-- Slab 3: Architectural Blueprint -->
-          <div class="tactile-slab slab-blueprint">
-            <span class="slab-badge">{{ 'hero.slab.design' | translate }}</span>
-            <div class="slab-pattern blueprint-pattern">
-              <div class="blueprint-vector"></div>
+        <div class="hero-works-composition">
+          <!-- Work 1: Parquet a Spina Italiana -->
+          @if (heroProjects()[0]; as p1) {
+            <div
+              class="hero-work-card card-parquet"
+              role="button"
+              tabindex="0"
+              (click)="openLightbox(p1, 0)"
+              (keyup.enter)="openLightbox(p1, 0)"
+              [attr.aria-label]="(isIt() ? p1.titleIt : p1.titleEn) + ' - ' + ('portfolio.openGallery' | translate)"
+            >
+              <img
+                [src]="p1.coverImage"
+                [alt]="isIt() ? p1.titleIt : p1.titleEn"
+                loading="eager"
+                decoding="async"
+                class="work-card-img"
+              />
+              <div class="work-card-overlay">
+                <span class="work-badge">{{ isIt() ? p1.categoryLabelIt : p1.categoryLabelEn }}</span>
+                <div class="work-card-details">
+                  <span class="work-title">{{ isIt() ? p1.titleIt : p1.titleEn }}</span>
+                  <span class="work-action">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    {{ 'portfolio.openGallery' | translate }}
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
+          }
+
+          <!-- Work 2: Ristrutturazione Bagno & Doccia Filo Pavimento -->
+          @if (heroProjects()[1]; as p2) {
+            <div
+              class="hero-work-card card-renovation"
+              role="button"
+              tabindex="0"
+              (click)="openLightbox(p2, 0)"
+              (keyup.enter)="openLightbox(p2, 0)"
+              [attr.aria-label]="(isIt() ? p2.titleIt : p2.titleEn) + ' - ' + ('portfolio.openGallery' | translate)"
+            >
+              <img
+                [src]="p2.coverImage"
+                [alt]="isIt() ? p2.titleIt : p2.titleEn"
+                loading="eager"
+                decoding="async"
+                class="work-card-img"
+              />
+              <div class="work-card-overlay">
+                <span class="work-badge">{{ isIt() ? p2.categoryLabelIt : p2.categoryLabelEn }}</span>
+                <div class="work-card-details">
+                  <span class="work-title">{{ isIt() ? p2.titleIt : p2.titleEn }}</span>
+                  <span class="work-action">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    {{ 'portfolio.openGallery' | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          }
+
+          <!-- Work 3: Rivestimento Scala Esterna in Gres Porcellanato -->
+          @if (heroProjects()[2]; as p3) {
+            <div
+              class="hero-work-card card-outdoor"
+              role="button"
+              tabindex="0"
+              (click)="openLightbox(p3, 0)"
+              (keyup.enter)="openLightbox(p3, 0)"
+              [attr.aria-label]="(isIt() ? p3.titleIt : p3.titleEn) + ' - ' + ('portfolio.openGallery' | translate)"
+            >
+              <img
+                [src]="p3.coverImage"
+                [alt]="isIt() ? p3.titleIt : p3.titleEn"
+                loading="eager"
+                decoding="async"
+                class="work-card-img"
+              />
+              <div class="work-card-overlay">
+                <span class="work-badge">{{ isIt() ? p3.categoryLabelIt : p3.categoryLabelEn }}</span>
+                <div class="work-card-details">
+                  <span class="work-title">{{ isIt() ? p3.titleIt : p3.titleEn }}</span>
+                  <span class="work-action">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    {{ 'portfolio.openGallery' | translate }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          }
+
           <!-- Floating Credibility Capsule -->
           <div class="floating-badge-capsule">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">

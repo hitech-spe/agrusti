@@ -26,6 +26,15 @@ export class HomeComponent implements OnInit {
   // List of Projects from Centralized Config
   protected projects = signal<ProjectItem[]>(PROJECTS_DATA);
 
+  // 3 Featured Works for Hero Visual Showcase (Parquet, Ristrutturazione Bagno, Scala Esterna)
+  protected heroProjects = computed(() => {
+    const list = this.projects();
+    const p1 = list.find(p => p.id === 'parquet-rovere-naturale') ?? list[0];
+    const p2 = list.find(p => p.id === 'ristrutturazione-bagno-doccia-filo-pavimento') ?? list[1];
+    const p3 = list.find(p => p.id === 'posa-gres-scala-esterna') ?? list[4];
+    return [p1, p2, p3];
+  });
+
   // Dynamic Category Counts for Filter Tabs
   protected categoryCounts = computed(() => {
     const list = this.projects();
