@@ -23,11 +23,18 @@ export class HeaderComponent {
   }
 
   toggleMobileMenu(): void {
-    this.isMobileMenuOpen.update(val => !val);
+    const nextState = !this.isMobileMenuOpen();
+    this.isMobileMenuOpen.set(nextState);
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = nextState ? 'hidden' : '';
+    }
   }
 
   closeMobileMenu(): void {
     this.isMobileMenuOpen.set(false);
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+    }
   }
 
   changeLang(lang: 'it' | 'en'): void {
