@@ -18,6 +18,15 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contact/contact').then(m => m.ContactComponent)
   },
   {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./pages/privacy-policy/privacy-policy').then(m => m.PrivacyPolicyComponent)
+  },
+  {
+    path: 'termini-e-condizioni',
+    loadComponent: () => import('./pages/terms/terms').then(m => m.TermsComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

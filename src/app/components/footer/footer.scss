@@ -140,8 +140,34 @@
     letter-spacing: 0.2px;
   }
 
-  .piva {
+  .legal-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-family: var(--font-headings);
     letter-spacing: 0.5px;
+
+    .sep {
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 10px;
+    }
+
+    .legal-link,
+    .cookie-btn {
+      background: none;
+      border: none;
+      color: var(--color-text-light-muted);
+      cursor: pointer;
+      font-size: 13px;
+      font-family: inherit;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--color-primary-light);
+      }
+    }
   }
 }

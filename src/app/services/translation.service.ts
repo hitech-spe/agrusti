@@ -148,6 +148,9 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     'footer.sitemap': 'Sitemap',
     'footer.rights': 'Tutti i diritti riservati.',
     'footer.piva': 'P.IVA / C.F.: 03426610733',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Termini e Condizioni',
+    'footer.cookies': 'Preferenze Cookie',
 
     'portfolio.title': 'I Nostri Ultimi Lavori',
     'portfolio.subtitle': 'Sfoglia alcuni dei nostri cantieri completati con dedizione e maestria artigianale',
@@ -318,6 +321,9 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     'footer.sitemap': 'Sitemap',
     'footer.rights': 'All rights reserved.',
     'footer.piva': 'Vat No / Tax Code: 03426610733',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Terms & Conditions',
+    'footer.cookies': 'Cookie Preferences',
 
     'portfolio.title': 'Our Recent Projects',
     'portfolio.subtitle': 'Browse some of our completed construction sites handled with dedication and master craftsmanship',

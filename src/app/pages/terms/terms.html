@@ -1,0 +1,197 @@
+<main class="legal-page">
+  <div class="legal-hero">
+    <div class="container">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a routerLink="/">{{ 'nav.home' | translate }}</a>
+        <span class="sep">/</span>
+        <span class="current">{{ 'footer.terms' | translate }}</span>
+      </nav>
+      <h1 class="legal-title">
+        @if (isIt()) {
+          Termini e Condizioni d’Uso
+        } @else {
+          Terms and Conditions of Use
+        }
+      </h1>
+      <p class="legal-subtitle">
+        @if (isIt()) {
+          Condizioni generali che regolano la consultazione e l’utilizzo del sito ufficiale di Antonio Agrusti SRLS
+        } @else {
+          General terms governing the browsing and use of the official Antonio Agrusti SRLS website
+        }
+      </p>
+      <div class="legal-meta">
+        <span class="meta-tag">
+          @if (isIt()) { Ultimo aggiornamento: Ottobre 2026 } @else { Last updated: October 2026 }
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <section class="legal-content-section">
+    <div class="container">
+      <div class="legal-card">
+        @if (isIt()) {
+          <!-- VERSIONE ITALIANO -->
+          <article class="legal-article">
+            <p class="intro-lead">
+              Benvenuto sul sito web ufficiale di <strong>{{ businessInfo.legalName }}</strong> (di seguito denominata la "Società" o il "Titolare").
+              L'accesso e la navigazione sul sito web <strong>antonioagrustisrls.com</strong> sono soggetti all'accettazione e al rispetto
+              dei presenti Termini e Condizioni d'Uso.
+            </p>
+
+            <h2>1. Dati della Società</h2>
+            <div class="titolare-box">
+              <p><strong>{{ businessInfo.legalName }}</strong></p>
+              <p>Sede Legale: {{ businessInfo.address.full }}</p>
+              <p>Partita IVA e Codice Fiscale: <strong>{{ businessInfo.vatNumber }}</strong></p>
+              <p>Amministratore Unico: <strong>Antonio Agrusti</strong></p>
+              <p>Email: <a [href]="'mailto:' + businessInfo.email">{{ businessInfo.email }}</a></p>
+              <p>Recapito Telefonico: <a [href]="'tel:' + businessInfo.phone">{{ businessInfo.phoneFormatted }}</a></p>
+            </div>
+
+            <h2>2. Finalità del Sito e Valore dei Preventivi</h2>
+            <p>
+              Il presente sito web ha una funzione istituzionale e informativa. È progettato per illustrare le competenze,
+              le metodologie lavorative e i servizi di eccellenza offerti da Antonio Agrusti SRLS nel campo della
+              <strong>posa di pavimenti</strong> (pietra naturale, parquet a spina italiana, legni pregiati, masselli autobloccanti, SPC),
+              delle <strong>ristrutturazioni edili complete chiavi in mano</strong> e dei trattamenti specializzati del
+              <strong>lastrico solare e coperture</strong>.
+            </p>
+            <p>
+              <strong>Valore dei contatti e preventivi:</strong> La compilazione e l'invio del modulo di contatto o l'invio di email
+              non costituisce in alcun modo conclusione di un contratto d'opera o di appalto. Le stime, le indicazioni di massima o i
+              preventivi gratuiti forniti a seguito di sopralluogo tecnico diverranno vincolanti unicamente a seguito di sottoscrizione
+              di un regolare contratto d'appalto o accettazione formale del preventivo controfirmato tra le parti.
+            </p>
+
+            <h2>3. Proprietà Intellettuale e Riservatezza dei Contenuti</h2>
+            <p>
+              Tutti i contenuti presenti sul sito — inclusi a titolo esemplificativo testi, loghi grafici, marchi, codici sorgente,
+              struttura dei contenuti, elementi grafici e, in particolare, la <strong>documentazione fotografica dei cantieri e dei lavori eseguiti</strong> —
+              sono di esclusiva proprietà di <strong>{{ businessInfo.legalName }}</strong> e sono protetti dalle vigenti norme nazionali
+              (Legge 22 aprile 1941 n. 633 e succ. mod.) e internazionali sul diritto d'autore e sulla proprietà industriale.
+            </p>
+            <p>
+              È severamente vietata la riproduzione, copia, alterazione, diffusione o utilizzazione commerciale, parziale o totale,
+              delle immagini dei cantieri o dei testi del sito senza la preventiva ed esplicita autorizzazione scritta di Antonio Agrusti.
+            </p>
+
+            <h2>4. Regole di Utilizzo del Sito</h2>
+            <p>L'utente si impegna ad utilizzare il sito e i canali di comunicazione in conformità alla legge e alla buona fede, e nello specifico a:</p>
+            <ul>
+              <li>Non inserire dati falsi, ingannevoli o appartenenti a terzi nel modulo di richiesta preventivo;</li>
+              <li>Non compiere azioni volte a danneggiare, sovraccaricare, disattivare o compromettere le infrastrutture del sito;</li>
+              <li>Non utilizzare software automatizzati, robot, spider o crawler per estrarre dati o contenuti senza autorizzazione;</li>
+              <li>Non diffondere virus informatici, malware o codici malevoli.</li>
+            </ul>
+
+            <h2>5. Collegamenti a Siti e Servizi di Terze Parti</h2>
+            <p>
+              Il sito può integrare mappe interattive (Google Maps) e collegamenti a servizi terzi per agevolare l'esperienza dell'utente.
+              La Società non ha alcun controllo sul contenuto, sulle condizioni o sulle politiche sulla privacy adottate da tali siti esterni
+              e declina ogni responsabilità per eventuali danni o inconvenienti derivanti dalla consultazione di piattaforme di terzi.
+            </p>
+
+            <h2>6. Limitazione di Responsabilità</h2>
+            <p>
+              La Società adotta le migliori pratiche tecniche per assicurare che le informazioni pubblicate siano costantemente aggiornate,
+              chiare e prive di errori. Tuttavia, il sito viene fornito "nello stato di fatto in cui si trova" e non si assumono responsabilità per:
+            </p>
+            <ul>
+              <li>Eventuali temporanee indisponibilità del sito dovute a interventi di manutenzione o problematiche dei server di rete;</li>
+              <li>Malfunzionamenti derivanti da incompatibilità con i dispositivi o con i browser utilizzati dall'utente;</li>
+              <li>Cause di forza maggiore al di fuori della sfera di controllo della Società.</li>
+            </ul>
+
+            <h2>7. Privacy e Cookie Policy</h2>
+            <p>
+              Il trattamento dei dati personali degli utenti raccolti tramite il sito avviene in piena conformità alle disposizioni del
+              Regolamento UE 2016/679 (GDPR), come dettagliatamente descritto nella nostra
+              <a routerLink="/privacy-policy">Informativa sulla Privacy &amp; Cookie Policy</a>.
+            </p>
+
+            <h2>8. Modifiche ai Termini e Condizioni</h2>
+            <p>
+              La Società si riserva il diritto di apportare modifiche o aggiornamenti ai presenti Termini e Condizioni in qualsiasi momento
+              per adeguarli a novità legislative o miglioramenti tecnici del sito. Le modifiche saranno efficaci a decorrere dalla data
+              di pubblicazione online.
+            </p>
+
+            <h2>9. Legge Applicabile e Foro Competente</h2>
+            <p>
+              I presenti Termini e Condizioni sono interamente regolati dalla legge italiana.
+            </p>
+            <p>
+              Per qualsiasi controversia derivante dall'interpretazione, validità o esecuzione dei presenti Termini:
+            </p>
+            <ul>
+              <li>
+                Nel caso in cui l'utente rivesta la qualifica di <strong>Consumatore</strong> ai sensi del D.Lgs. n. 206/2005 (Codice del Consumo),
+                la competenza territoriale inderogabile spetta al giudice del luogo di residenza o domicilio del consumatore, se ubicato nel territorio dello Stato italiano;
+              </li>
+              <li>
+                In tutti gli altri casi (utenti professionali, imprese, società), la competenza territoriale esclusiva spetta al
+                <strong>Foro di Taranto</strong>.
+              </li>
+            </ul>
+          </article>
+        } @else {
+          <!-- VERSIONE INGLESE -->
+          <article class="legal-article">
+            <p class="intro-lead">
+              Welcome to the official website of <strong>{{ businessInfo.legalName }}</strong> ("the Company").
+              Access to and browsing of <strong>antonioagrustisrls.com</strong> are governed by these Terms and Conditions of Use.
+            </p>
+
+            <h2>1. Company Information</h2>
+            <div class="titolare-box">
+              <p><strong>{{ businessInfo.legalName }}</strong></p>
+              <p>Registered Office: {{ businessInfo.address.full }}</p>
+              <p>VAT ID / Tax Code: <strong>{{ businessInfo.vatNumber }}</strong></p>
+              <p>Sole Director: <strong>Antonio Agrusti</strong></p>
+              <p>Email: <a [href]="'mailto:' + businessInfo.email">{{ businessInfo.email }}</a></p>
+              <p>Phone: <a [href]="'tel:' + businessInfo.phone">{{ businessInfo.phoneFormatted }}</a></p>
+            </div>
+
+            <h2>2. Purpose of the Website &amp; Quotes</h2>
+            <p>
+              This website serves an informative and showcase purpose, presenting the specialized expertise of Antonio Agrusti SRLS
+              in <strong>premium flooring</strong> (natural stone, Italian herringbone parquet, engineered wood, interlocking pavers, SPC),
+              <strong>turnkey building renovations</strong>, and <strong>flat roof waterproofing and insulation</strong>.
+            </p>
+            <p>
+              Submitting an online contact form or requesting information does not constitute a binding construction contract.
+              Any formal commitment requires a written and mutually executed quote, bill of quantities, or contract following an on-site survey.
+            </p>
+
+            <h2>3. Intellectual Property Rights</h2>
+            <p>
+              All materials on this website — including texts, brand logos, layouts, and specifically the <strong>photographic documentation of our completed construction works</strong> —
+              are the exclusive intellectual property of <strong>{{ businessInfo.legalName }}</strong> and protected by copyright laws.
+              Unauthorized reproduction, distribution, or commercial use is strictly prohibited without prior written consent from Antonio Agrusti.
+            </p>
+
+            <h2>4. Website Usage Rules</h2>
+            <p>
+              Users agree to browse the site lawfully and in good faith, without providing false information, attempting unauthorized access,
+              or deploying automated scraping tools without prior agreement.
+            </p>
+
+            <h2>5. Privacy &amp; Data Protection</h2>
+            <p>
+              All personal data collected through this website are processed according to the EU GDPR.
+              Please consult our <a routerLink="/privacy-policy">Privacy &amp; Cookie Policy</a> for complete details.
+            </p>
+
+            <h2>6. Applicable Law &amp; Jurisdiction</h2>
+            <p>
+              These Terms and Conditions are governed by Italian law. For consumer disputes, the mandatory jurisdiction of the consumer's
+              place of residence applies. For non-consumer disputes, the Court of Taranto shall hold exclusive jurisdiction.
+            </p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+</main>

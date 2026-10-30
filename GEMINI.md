@@ -23,6 +23,8 @@ Founded in 2014, **Antonio Agrusti SRLS** is an excellence-driven building renov
    - **Lastrico Solare & Coperture**: Specialized treatments, professional waterproofing, and thermal insulation.
    - **Mobili su Misura & Finiture**: Collaboration with local carpentry and systems teams.
 4. **Contatti (`/contatti`)**: Integrated communication page featuring a functional form (Netlify Forms compatible), registered office address (Mottola, Taranto), telephone, professional email, business hours, and an elegant visual map pointer.
+5. **Privacy & Cookie Policy (`/privacy-policy`)**: Exhaustive GDPR notice tailored to the business (contact form data via EmailJS, hosting on Netlify, and Cookiebot prior consent control) with interactive cookie settings reopen trigger.
+6. **Termini e Condizioni (`/termini-e-condizioni`)**: Clear legal terms of use detailing intellectual property of site construction photos and quotes disclaimer.
 
 ---
 

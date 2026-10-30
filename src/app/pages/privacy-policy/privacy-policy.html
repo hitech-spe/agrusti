@@ -1,0 +1,240 @@
+<main class="legal-page">
+  <div class="legal-hero">
+    <div class="container">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a routerLink="/">{{ 'nav.home' | translate }}</a>
+        <span class="sep">/</span>
+        <span class="current">Privacy &amp; Cookie Policy</span>
+      </nav>
+      <h1 class="legal-title">
+        @if (isIt()) {
+          Informativa sulla Privacy &amp; Cookie Policy
+        } @else {
+          Privacy &amp; Cookie Policy
+        }
+      </h1>
+      <p class="legal-subtitle">
+        @if (isIt()) {
+          Ai sensi del Regolamento UE 2016/679 (GDPR) e della normativa italiana vigente
+        } @else {
+          Pursuant to EU Regulation 2016/679 (GDPR) and applicable Italian privacy laws
+        }
+      </p>
+      <div class="legal-meta">
+        <span class="meta-tag">
+          @if (isIt()) { Ultimo aggiornamento: Ottobre 2026 } @else { Last updated: October 2026 }
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <section class="legal-content-section">
+    <div class="container">
+      <div class="legal-card">
+        @if (isIt()) {
+          <!-- VERSIONE ITALIANO -->
+          <article class="legal-article">
+            <p class="intro-lead">
+              La presente Informativa ha lo scopo di descrivere in maniera chiara, trasparente e conforme al
+              <strong>Regolamento Generale sulla Protezione dei Dati (Regolamento UE 2016/679 - "GDPR")</strong>
+              e al D.Lgs. 196/2003 e s.m.i. le modalità di gestione e trattamento dei dati personali degli utenti
+              che consultano e utilizzano il sito web <strong>antonioagrustisrls.com</strong>.
+            </p>
+
+            <h2>1. Titolare del Trattamento</h2>
+            <p>Il Titolare del trattamento dei dati personali è:</p>
+            <div class="titolare-box">
+              <p><strong>{{ businessInfo.legalName }}</strong></p>
+              <p>Sede Legale: {{ businessInfo.address.full }}</p>
+              <p>Partita IVA e Codice Fiscale: <strong>{{ businessInfo.vatNumber }}</strong></p>
+              <p>Legale Rappresentante: <strong>Antonio Agrusti</strong></p>
+              <p>Email di contatto: <a [href]="'mailto:' + businessInfo.email">{{ businessInfo.email }}</a></p>
+              <p>Telefono: <a [href]="'tel:' + businessInfo.phone">{{ businessInfo.phoneFormatted }}</a></p>
+            </div>
+
+            <h2>2. Finalità e Basi Giuridiche del Trattamento</h2>
+            <p>I dati personali forniti dall'utente o acquisiti durante la navigazione sono trattati per le seguenti finalità:</p>
+            <ul>
+              <li>
+                <strong>Riscontro a richieste di preventivo o informazioni:</strong> i dati conferiti tramite il modulo di
+                contatto presente sul sito (nome, email, telefono, dettagli del messaggio) sono utilizzati esclusivamente per
+                ricontattare l'interessato, fornire chiarimenti tecnici ed elaborare preventivi gratuiti o concordare
+                sopralluoghi tecnici per lavori edili e posa pavimenti.
+                <br><em>Base giuridica: esecuzione di misure precontrattuali adottate su richiesta dell'interessato (art. 6, par. 1, lett. b GDPR).</em>
+              </li>
+              <li>
+                <strong>Adempimento di obblighi legali e fiscali:</strong> in caso di conferimento dell'incarico o stipula di
+                contratto di appalto, i dati saranno trattati per la fatturazione, la tenuta della contabilità e gli obblighi normativi.
+                <br><em>Base giuridica: adempimento di obblighi legali a cui è soggetto il Titolare (art. 6, par. 1, lett. c GDPR).</em>
+              </li>
+              <li>
+                <strong>Sicurezza, manutenzione del sito e prevenzione abusi:</strong> i sistemi informatici rilevano dati tecnici
+                di navigazione per garantire l'integrità del servizio e prevenire tentativi di frode o attacchi informatici.
+                <br><em>Base giuridica: legittimo interesse del Titolare a garantire la sicurezza delle proprie infrastrutture (art. 6, par. 1, lett. f GDPR).</em>
+              </li>
+            </ul>
+            <p><strong>Nota importante:</strong> Il sito <em>non</em> effettua vendita e-commerce online, non prevede registrazione di account utente e non adotta processi decisionali automatizzati o profilazione commerciale invasiva.</p>
+
+            <h2>3. Tipologia di Dati Trattati</h2>
+            <ul>
+              <li>
+                <strong>Dati forniti volontariamente:</strong> nome, cognome, indirizzo email, recapito telefonico ed eventuali
+                informazioni tecniche o descrittive inserite nel messaggio di richiesta preventivo.
+              </li>
+              <li>
+                <strong>Dati di navigazione:</strong> durante la normale navigazione, i protocolli internet possono acquisire
+                informazioni standard (come indirizzi IP anonimizzati, tipo di browser, orario di accesso), necessarie al funzionamento
+                della rete e alla sicurezza tecnica dell'infrastruttura di hosting.
+              </li>
+            </ul>
+
+            <h2>4. Destinatari e Trasferimento dei Dati</h2>
+            <p>
+              I dati personali non saranno in alcun caso venduti, ceduti né diffusi a soggetti terzi indeterminati.
+              Potranno essere comunicati unicamente a soggetti terzi strettamente necessari allo svolgimento delle attività del Titolare,
+              nominati ove previsto Responsabili del Trattamento:
+            </p>
+            <ul>
+              <li><strong>Netlify Inc.:</strong> fornitore del servizio di hosting, distribuzione CDN e sicurezza server;</li>
+              <li><strong>EmailJS:</strong> servizio tecnico per l'instradamento sicuro e diretto delle comunicazioni inviate tramite form;</li>
+              <li><strong>Consulenti contabili/fiscali e istituti bancari:</strong> limitatamente all'esecuzione di adempimenti di legge in caso di effettivo rapporto contrattuale;</li>
+              <li><strong>Autorità competenti:</strong> nei casi espressamente previsti dalla legge.</li>
+            </ul>
+
+            <h2>5. Periodo di Conservazione dei Dati</h2>
+            <p>
+              I dati inviati per richieste di contatto o preventivo vengono conservati per il tempo strettamente necessario a evadere
+              la richiesta e, in caso di mancata prosecuzione del rapporto contrattuale, saranno cancellati entro 12 mesi. In caso di
+              effettiva instaurazione di un rapporto di fornitura/lavori edili, i dati amministrativo-contabili saranno conservati per
+              il periodo obbligatorio previsto dalla legislazione civilistica e tributaria italiana (10 anni).
+            </p>
+
+            <h2>6. Informativa sui Cookie e Gestione del Consenso</h2>
+            <p>
+              Il nostro sito fa uso di cookie e tecnologie affini per garantire il corretto funzionamento delle pagine e migliorare
+              l'esperienza di navigazione.
+            </p>
+            <p>
+              Per la gestione trasparente e conforme del consenso utilizziamo la piattaforma <strong>Cookiebot (Usercentrics A/S)</strong>,
+              che garantisce il blocco preventivo dei cookie non essenziali fino a quando l'utente non esprime una scelta attiva.
+            </p>
+            <ul>
+              <li><strong>Cookie Tecnici / Necessari:</strong> essenziali per consentire la navigazione e salvare la scelta linguistica o di consenso. Non richiedono consenso preventivo.</li>
+              <li><strong>Cookie di Statistica e Terze Parti (se presenti):</strong> attivati solo previo consenso esplicito dell'utente attraverso il banner.</li>
+            </ul>
+            <div class="cookie-action-box">
+              <p>Puoi rivedere o modificare la tua scelta sui cookie in qualsiasi momento cliccando sul seguente pulsante:</p>
+              <button type="button" class="btn-cookie-action" (click)="openCookieSettings()">
+                Modifica le tue Preferenze Cookie
+              </button>
+            </div>
+
+            <h2>7. Diritti dell'Interessato (Artt. 15-22 GDPR)</h2>
+            <p>In qualità di interessato, il GDPR ti riconosce i seguenti diritti:</p>
+            <ul>
+              <li>Diritto di ottenere la conferma dell'esistenza o meno di tuoi dati personali e la loro comunicazione (accesso);</li>
+              <li>Diritto di rettifica di dati inesatti o integrazione di dati incompleti;</li>
+              <li>Diritto di cancellazione ("diritto all'oblio") nei casi previsti dall'art. 17 GDPR;</li>
+              <li>Diritto di limitazione del trattamento (art. 18 GDPR);</li>
+              <li>Diritto alla portabilità dei dati (art. 20 GDPR);</li>
+              <li>Diritto di opposizione al trattamento (art. 21 GDPR);</li>
+              <li>Diritto di revocare in ogni momento il consenso precedentemente espresso.</li>
+            </ul>
+            <p>
+              Per esercitare i tuoi diritti puoi rivolgerti in qualsiasi momento al Titolare inviando una comunicazione a mezzo email a:
+              <a [href]="'mailto:' + businessInfo.email"><strong>{{ businessInfo.email }}</strong></a>.
+            </p>
+            <p>
+              Hai inoltre il diritto di proporre reclamo all'Autorità di Controllo competente:
+              <strong>Garante per la Protezione dei Dati Personali</strong> (Piazza Venezia 11, 00187 Roma — www.garanteprivacy.it).
+            </p>
+          </article>
+        } @else {
+          <!-- VERSIONE INGLESE -->
+          <article class="legal-article">
+            <p class="intro-lead">
+              This Privacy Policy explains how <strong>{{ businessInfo.legalName }}</strong> collects, uses, and protects
+              your personal data when you visit and use <strong>antonioagrustisrls.com</strong>, in accordance with the
+              <strong>General Data Protection Regulation (EU Regulation 2016/679 - "GDPR")</strong> and applicable Italian legislation.
+            </p>
+
+            <h2>1. Data Controller</h2>
+            <p>The Data Controller responsible for your personal data is:</p>
+            <div class="titolare-box">
+              <p><strong>{{ businessInfo.legalName }}</strong></p>
+              <p>Registered Office: {{ businessInfo.address.full }}</p>
+              <p>VAT ID / Tax Code: <strong>{{ businessInfo.vatNumber }}</strong></p>
+              <p>Legal Representative: <strong>Antonio Agrusti</strong></p>
+              <p>Contact Email: <a [href]="'mailto:' + businessInfo.email">{{ businessInfo.email }}</a></p>
+              <p>Phone: <a [href]="'tel:' + businessInfo.phone">{{ businessInfo.phoneFormatted }}</a></p>
+            </div>
+
+            <h2>2. Purpose and Legal Basis of Processing</h2>
+            <ul>
+              <li>
+                <strong>Responding to quote and contact requests:</strong> Personal data submitted through our contact form
+                (name, email, phone, message content) are used solely to reply to inquiries, provide technical information,
+                and arrange free site surveys and estimates.
+                <br><em>Legal basis: Performance of pre-contractual measures taken at the request of the data subject (Art. 6(1)(b) GDPR).</em>
+              </li>
+              <li>
+                <strong>Compliance with legal and tax obligations:</strong> If a contractual agreement is entered into, data
+                will be processed for accounting, tax, and statutory requirements.
+                <br><em>Legal basis: Compliance with legal obligations (Art. 6(1)(c) GDPR).</em>
+              </li>
+              <li>
+                <strong>Site security and fraud prevention:</strong> Technical browsing logs are processed to maintain system
+                integrity and protect infrastructure from malicious cyber activity.
+                <br><em>Legal basis: Legitimate interests pursued by the Controller (Art. 6(1)(f) GDPR).</em>
+              </li>
+            </ul>
+
+            <h2>3. Types of Collected Data</h2>
+            <ul>
+              <li><strong>Data provided voluntarily:</strong> Name, email address, phone number, and project notes.</li>
+              <li><strong>Browsing data:</strong> Anonymized IP addresses and standard server log metrics handled by our hosting infrastructure (Netlify Inc.).</li>
+            </ul>
+
+            <h2>4. Data Recipients</h2>
+            <p>
+              We do not sell, rent, or trade your personal data. Data may only be processed by trusted technical providers
+              acting as data processors (such as Netlify Inc. for hosting and EmailJS for email dispatch) or competent authorities
+              when required by law.
+            </p>
+
+            <h2>5. Retention Period</h2>
+            <p>
+              Inquiries and quote requests are stored only for as long as necessary to process them and are deleted within 12 months
+              if not followed by a contract. Contractual records are retained for the statutory 10-year period required by Italian law.
+            </p>
+
+            <h2>6. Cookie Notice &amp; Consent Management</h2>
+            <p>
+              We utilize <strong>Cookiebot (Usercentrics A/S)</strong> to provide complete transparency and automatic prior blocking
+              of non-essential cookies until you grant your consent.
+            </p>
+            <div class="cookie-action-box">
+              <p>You can adjust or revoke your cookie consent settings at any time by clicking the button below:</p>
+              <button type="button" class="btn-cookie-action" (click)="openCookieSettings()">
+                Manage Cookie Preferences
+              </button>
+            </div>
+
+            <h2>7. Your GDPR Rights</h2>
+            <p>Under Articles 15-22 of the GDPR, you have the right to:</p>
+            <ul>
+              <li>Access, rectify, or request erasure of your personal data;</li>
+              <li>Request restriction of processing or object to processing;</li>
+              <li>Request data portability;</li>
+              <li>Lodge a complaint with a supervisory authority (in Italy: Garante Privacy, www.garanteprivacy.it).</li>
+            </ul>
+            <p>
+              To exercise your rights, please email us at:
+              <a [href]="'mailto:' + businessInfo.email"><strong>{{ businessInfo.email }}</strong></a>.
+            </p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+</main>

@@ -25,10 +25,11 @@ export class App implements OnInit {
         easing: 'ease-out-cubic'
       });
 
-      // Automatically refresh AOS animations upon successful route change!
+      // Automatically refresh AOS animations and scroll to top upon successful route change!
       this.router.events.pipe(
         filter(event => event instanceof NavigationEnd)
       ).subscribe(() => {
+        window.scrollTo(0, 0);
         setTimeout(() => {
           AOS.refresh();
         }, 100);
