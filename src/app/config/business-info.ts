@@ -3,6 +3,7 @@
 export interface BusinessInfo {
   name: string;
   legalName: string;
+  websiteUrl: string;
   vatNumber: string;
   taxCode: string;
   phone: string;
@@ -38,6 +39,7 @@ export interface BusinessInfo {
 export const BUSINESS_INFO: BusinessInfo = {
   name: 'Antonio Agrusti SRLS',
   legalName: 'Antonio Agrusti S.R.L.S.',
+  websiteUrl: 'https://antonioagrustisrls.com',
   vatNumber: '03426610733',
   taxCode: '03426610733',
   phone: '+393895010842',

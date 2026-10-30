@@ -34,11 +34,19 @@ Instead of bulky external libraries, the application uses a custom lightweight `
 - Translations are managed as static dictionary constants in `src/app/services/translation.service.ts`.
 - Dynamic key fetching in templates is facilitated by the custom `TranslatePipe` (e.g. `{{ 'hero.title' | translate }}`), ensuring reactive, instant language swapping without page reloads or layout shifts.
 
-### 2. Router-Driven SEO & Meta Engine
-Search Engine Optimization is managed dynamically through a custom `SeoService` that:
-- Listens to router navigation events and updates meta tags instantly.
-- Dynamically configures OpenGraph and Twitter cards for premium social sharing previews.
-- Injects a fully structured **JSON-LD Schema (LocalBusiness)** directly into the document `<head>` on route load, boosting appearance in Puglia local searches and Google Maps results.
+### 2. Router-Driven SEO & Meta Engine (`src/app/services/seo.service.ts`)
+Search Engine Optimization is configured for the production domain **`https://antonioagrustisrls.com`**:
+- Centralized URL via `BUSINESS_INFO.websiteUrl`.
+- Updates title, meta description, keywords, author, and `robots` directives (`index, follow, max-image-preview:large`).
+- Dynamically configures OpenGraph and Twitter cards (with absolute URL images and `it_IT`/`en_US` locales).
+- Dynamic canonical links per route with automatic fallback in `index.html`.
+- Injects rich structured data (`@graph` schema) directly into `<head>`:
+  - **LocalBusiness / GeneralContractor / HomeAndConstructionBusiness**: Complete business data, address in Mottola (TA), geo-coordinates, business hours, and Puglia regional service areas.
+  - **WebSite**: Entity publisher definition.
+  - **FAQPage**: Rich accordion schema for the 4 core FAQs on the homepage.
+  - **BreadcrumbList**: Structured navigation hierarchy for internal pages (`/chi-siamo`, `/servizi`, `/contatti`).
+- **Sitemap & Robots**: `public/sitemap.xml` compliant with sitemaps.org standards and `public/robots.txt` pointing to `https://antonioagrustisrls.com/sitemap.xml`.
+- **Netlify Canonical Redirects**: 301 redirection from `www` and `http` to apex `https://antonioagrustisrls.com` in `netlify.toml` and `public/_redirects`.
 
 ### 3. EmailJS Direct Email Delivery (`src/app/services/email.service.ts` & `src/app/config/emailjs.config.ts`)
 The contact page directly dispatches inquiries via the official **EmailJS** SDK (`@emailjs/browser`):

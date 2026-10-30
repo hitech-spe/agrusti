@@ -23,5 +23,9 @@ export class ServicesComponent implements OnInit {
       : 'From premium flooring (stone, wood, interlocking pavers) to turnkey renovations and flat roof treatments. Discover our specialized services.';
     
     this.seoService.updateMeta(title, description, '/servizi');
+    this.seoService.injectBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: isIt ? 'I Nostri Servizi' : 'Our Services', url: '/servizi' }
+    ]);
   }
 }

@@ -1,1 +1,7 @@
+# Canonical 301 Redirections to https://antonioagrustisrls.com
+https://www.antonioagrustisrls.com/*  https://antonioagrustisrls.com/:splat  301!
+http://www.antonioagrustisrls.com/*   https://antonioagrustisrls.com/:splat  301!
+http://antonioagrustisrls.com/*       https://antonioagrustisrls.com/:splat  301!
+
+# SPA Routing Fallback
 /*    /index.html   200

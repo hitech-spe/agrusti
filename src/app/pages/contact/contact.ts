@@ -58,6 +58,10 @@ export class ContactComponent implements OnInit {
       : `Request a free quote or on-site survey from ${BUSINESS_INFO.name}. We are available for projects and consultations throughout Apulia.`;
 
     this.seoService.updateMeta(title, description, '/contatti');
+    this.seoService.injectBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: isIt ? 'Contattaci' : 'Contact Us', url: '/contatti' }
+    ]);
   }
 
   protected isIt(): boolean {

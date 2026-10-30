@@ -6,6 +6,26 @@
   NPM_FLAGS = "--legacy-peer-deps"
   NODE_VERSION = "22"
 
+# Canonical 301 Redirections to apex https://antonioagrustisrls.com
+[[redirects]]
+  from = "https://www.antonioagrustisrls.com/*"
+  to = "https://antonioagrustisrls.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.antonioagrustisrls.com/*"
+  to = "https://antonioagrustisrls.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://antonioagrustisrls.com/*"
+  to = "https://antonioagrustisrls.com/:splat"
+  status = 301
+  force = true
+
+# Fallback for Angular SPA Routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -24,3 +44,15 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=UTF-8"
+    Cache-Control = "public, max-age=86400"

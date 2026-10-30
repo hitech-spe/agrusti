@@ -23,5 +23,9 @@ export class AboutComponent implements OnInit {
       : 'The story of Antonio Agrusti SRLS. Since 2014, delivering excellence in turnkey renovations and premium flooring installations.';
     
     this.seoService.updateMeta(title, description, '/chi-siamo');
+    this.seoService.injectBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: isIt ? 'Chi Siamo' : 'About Us', url: '/chi-siamo' }
+    ]);
   }
 }

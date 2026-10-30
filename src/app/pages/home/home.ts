@@ -100,6 +100,13 @@ export class HomeComponent implements OnInit {
 
     this.seoService.updateMeta(title, description, '/');
     this.seoService.injectLocalBusinessSchema();
+
+    // Inietta schema FAQPage per rich snippets su Google
+    const faqData = this.faqs.map(faq => ({
+      question: isIt ? faq.questionIt : faq.questionEn,
+      answer: isIt ? faq.answerIt : faq.answerEn
+    }));
+    this.seoService.injectFaqSchema(faqData);
   }
 
   protected filterCategory(category: string): void {
